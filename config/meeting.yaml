@@ -1,0 +1,32 @@
+meeting:
+  start_phone_test: 0
+  end_phone_test: 70
+
+  #phone 切片
+  start_phone_1: 0
+  end_phone_1: 1100
+
+  start_phone_2: 1100
+  end_phone_2: 1700
+
+  start_phone_3: 1700
+  end_phone_3: 2300
+
+  start_phone_4: 2300
+  end_phone_4: 2900
+
+  start_phone_5: 2900
+  end_phone_5: 3500
+
+  start_phone_6: 3500
+  end_phone_6: -1
+
+Mode:
+    #共创建多少场畅听会议
+    meeting_num_test: 8
+    meeting_num1: 220
+    meeting_num2: 130
+    meeting_num3: 200
+    meeting_num4: 200
+    meeting_num5: 200
+    meeting_num6: 50
