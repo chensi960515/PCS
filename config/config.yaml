@@ -10,25 +10,32 @@ parameter:
 #    生产电话存放地址
 #    dep_excelFile: "F:\\263\\电话.xlsx"
 #    #获取token链接
-#    url_token: "https://apipcstest.263.net/api/getToken"
+#    url_token: "https://apipcs.263.net/api/getToken"
 #
 #    #创建倾听电话会议链接
-#    url_create_Meeting: "https://apipcstest.263.net/api/createMeeting"
+#    url_create_Meeting: "https://apipcs.263.net/api/createMeeting"
 #
 #    #获取倾听电话会议详细信息链接
-#    url_query_Meeting: "https://pcstest.263.net/meetingRoom/queryMeetingInfo/"
+#    url_query_Meeting: "https://pcs.263.net/meetingRoom/queryMeetingInfo/"
 #
+#    #取消会议(只针对未开启或已过期得倾听会议)
+#    url_cancelMeeting: "https://apipcs.263.net/api/cancelMeeting"
+#
+#    #结束会议
+#    ur_endMeeting: "https://pcs.263.net/meetingRoom/endMeeting/"
+#
+#    #
 #    #倾听电话会议主动外呼客户
-#    url_callParty: "https://pcstest.263.net/meetingRoom/control-callParty"
+#    url_callParty: "https://pcs.263.net/meetingRoom/control-callParty"
 #
 #    #客户UID
-#    customerId: "U10000247885"
+#    customerId: "U11001346548"
 #
 #    #客户密码
-#    secret: "123456"
+#    secret: "WiOroBTHdM1U6wwukO9Y7EzD927nVrhZ"
 #
-#    #创建会议的账户
-#    userAccount: "xu.chen1@net263.com"
+#    #创建会议的账户    密码  net263
+#    userAccount: "cx@net263.com"
 #=============================================👆dep👆====================================================
 
 
@@ -36,7 +43,7 @@ parameter:
     #测试环境
 
     #虚拟电话存放地址
-    excelFile: "F:\\263\\测试虚拟电话.xlsx"
+    excelFile: "D:\\263\\测试虚拟账号.xlsx"
 
     #获取token链接
     url_token: "https://apipcstest.263.net/api/getToken"
@@ -46,6 +53,12 @@ parameter:
 
     #获取倾听电话会议详细信息链接
     url_query_Meeting: "https://pcstest.263.net/meetingRoom/queryMeetingInfo/"
+
+    #取消会议(只针对未开启或已过期得倾听会议)
+    url_cancelMeeting:  "https://apipcstest.263.net/api/cancelMeeting"
+
+    #结束会议
+    ur_endMeeting:  "https://pcstest.263.net/meetingRoom/endMeeting/"
 
     #倾听电话会议主动外呼客户
     url_callParty: "https://pcstest.263.net/meetingRoom/control-callParty"
@@ -72,7 +85,7 @@ parameter:
 
 
     #倾听会议定义开启时间
-    start_time: 1654030247000
+    start_time: 1654086600000
 
     #会议使用虚拟账号地址   文档内的格式必须固定,写死了,要有 5个sheet表,确保索引不越界
     #excelFile: "D:\\263\\测试虚拟账号.xlsx"

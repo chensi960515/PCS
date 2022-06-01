@@ -23,7 +23,7 @@ meeting:
 
 Mode:
     #共创建多少场畅听会议
-    meeting_num_test: 8
+    meeting_num_test: 12
     meeting_num1: 220
     meeting_num2: 130
     meeting_num3: 200

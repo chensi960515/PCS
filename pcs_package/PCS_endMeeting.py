@@ -12,10 +12,24 @@
 
 
 import requests
+import json
+import logging
+from tools import read_file
+from pcs_package import PCS_getToken
 
-cookie = 'SESSION=OGU5MWNhOTUtYzE1MC00ZmZjLWI3YjUtOTFlYTEyNGQxZTRl; languageCC=zh; i18next=zh; pus=642a6e0a-4005-461f-aeaf-370fef2b016b'
+# 设置loggin.info 可控制台输出
+logging.getLogger().setLevel(logging.INFO)
 
-test_url = "https://pcstest.263.net/meetingRoom/endMeeting/"
+# 配置文件的路径,名称是固定的
+ya = read_file.GetData()
+conf_path = f"../config/config.yaml"
+meet_path = f"../config/meeting.yaml"
+conf = ya.get_data_list(conf_path)
+
+
+cookie = conf['parameter']['cookie']
+
+test_url = conf['parameter']['ur_endMeeting']
 
 list_hostPasscode = []
 
