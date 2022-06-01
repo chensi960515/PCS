@@ -7,6 +7,7 @@
 @time: 2022/5/30  23:34
 """
 import json
+import time
 
 """
     主动外呼客户
@@ -59,6 +60,7 @@ class Call():
                 user_dict["role"] = data_parties[i]["role"]
                 user_info.append({'name': user_dict["name"], 'phone': user_dict["phone"], 'role': user_dict["role"]})
 #            logging.info(user_dict)
+            time.sleep(1)
             self.callParty(hostPasscode,user_info)
 
 
@@ -75,8 +77,9 @@ class Call():
             'cookie': conf["parameter"]["cookie"]
         }
         if len(payload["parties"]) != 0:
-            requests.request("POST", url, headers=headers, data=payload, files=files)
+            res = requests.request("POST", url, headers=headers, data=payload, files=files)
             logging.info(payload)
+            logging.info(time.asctime( time.localtime(time.time()) ))
 
 call = Call()
 call.get_hostPasscode()

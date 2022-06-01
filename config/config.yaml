@@ -8,69 +8,73 @@ parameter:
     #生产环境
 
 #    生产电话存放地址
-#    dep_excelFile: "F:\\263\\电话.xlsx"
-#    #获取token链接
-#    url_token: "https://apipcs.263.net/api/getToken"
-#
-#    #创建倾听电话会议链接
-#    url_create_Meeting: "https://apipcs.263.net/api/createMeeting"
-#
-#    #获取倾听电话会议详细信息链接
-#    url_query_Meeting: "https://pcs.263.net/meetingRoom/queryMeetingInfo/"
-#
-#    #取消会议(只针对未开启或已过期得倾听会议)
-#    url_cancelMeeting: "https://apipcs.263.net/api/cancelMeeting"
-#
-#    #结束会议
-#    ur_endMeeting: "https://pcs.263.net/meetingRoom/endMeeting/"
-#
-#    #
-#    #倾听电话会议主动外呼客户
-#    url_callParty: "https://pcs.263.net/meetingRoom/control-callParty"
-#
-#    #客户UID
-#    customerId: "U11001346548"
-#
-#    #客户密码
-#    secret: "WiOroBTHdM1U6wwukO9Y7EzD927nVrhZ"
-#
-#    #创建会议的账户    密码  net263
-#    userAccount: "cx@net263.com"
+    excelFile: "D:\\263\\电话.xlsx"
+    #获取token链接
+    url_token: "https://apipcs.263.net/api/getToken"
+
+    #创建倾听电话会议链接
+    url_create_Meeting: "https://apipcs.263.net/api/createMeeting"
+
+    #获取倾听电话会议详细信息链接
+    url_query_Meeting: "https://pcs.263.net/meetingRoom/queryMeetingInfo/"
+
+    #取消会议(只针对未开启或已过期得倾听会议)
+    url_cancelMeeting: "https://apipcs.263.net/api/cancelMeeting"
+
+    #结束会议
+    ur_endMeeting: "https://pcs.263.net/meetingRoom/endMeeting/"
+
+    #
+    #倾听电话会议主动外呼客户
+    url_callParty: "https://pcs.263.net/meetingRoom/control-callParty"
+
+    #客户UID
+    customerId: "2975223540"
+
+    #客户密码
+    secret: "1Te6hb3be0T924f3"
+
+    #创建会议的账户    密码  net263
+    userAccount: "kangyao.xue@net263.com"
+
+    cookie: "language=zh; languageCC=zh; pus=e1701db9-e8dc-4bb9-a440-01fbf21ece63; SESSION=YzBhN2U4YTktN2FhYi00MGJlLWIzZmUtMzMyMDBlNDk5NjUx; i18next=zh"
 #=============================================👆dep👆====================================================
 
 
 #=============================================👇test👇====================================================
     #测试环境
 
-    #虚拟电话存放地址
-    excelFile: "D:\\263\\测试虚拟账号.xlsx"
-
-    #获取token链接
-    url_token: "https://apipcstest.263.net/api/getToken"
-
-    #创建倾听电话会议链接
-    url_create_Meeting: "https://apipcstest.263.net/api/createMeeting"
-
-    #获取倾听电话会议详细信息链接
-    url_query_Meeting: "https://pcstest.263.net/meetingRoom/queryMeetingInfo/"
-
-    #取消会议(只针对未开启或已过期得倾听会议)
-    url_cancelMeeting:  "https://apipcstest.263.net/api/cancelMeeting"
-
-    #结束会议
-    ur_endMeeting:  "https://pcstest.263.net/meetingRoom/endMeeting/"
-
-    #倾听电话会议主动外呼客户
-    url_callParty: "https://pcstest.263.net/meetingRoom/control-callParty"
-
-    #客户UID
-    customerId: "U10000247885"
-
-    #客户密码
-    secret: "123456"
-
-    #创建会议的账户
-    userAccount: "xu.chen1@net263.com"
+#    #虚拟电话存放地址
+#    excelFile: "D:\\263\\测试虚拟账号.xlsx"
+#
+#    #获取token链接
+#    url_token: "https://apipcstest.263.net/api/getToken"
+#
+#    #创建倾听电话会议链接
+#    url_create_Meeting: "https://apipcstest.263.net/api/createMeeting"
+#
+#    #获取倾听电话会议详细信息链接
+#    url_query_Meeting: "https://pcstest.263.net/meetingRoom/queryMeetingInfo/"
+#
+#    #取消会议(只针对未开启或已过期得倾听会议)
+#    url_cancelMeeting:  "https://apipcstest.263.net/api/cancelMeeting"
+#
+#    #结束会议
+#    ur_endMeeting:  "https://pcstest.263.net/meetingRoom/endMeeting/"
+#
+#    #倾听电话会议主动外呼客户
+#    url_callParty: "https://pcstest.263.net/meetingRoom/control-callParty"
+#
+#    #客户UID
+#    customerId: "U10000247885"
+#
+#    #客户密码
+#    secret: "123456"
+#
+#    #创建会议的账户
+#    userAccount: "xu.chen1@net263.com"
+#
+#    'cookie': 'language=zh; SESSION=ZGY2NTYxOTAtN2QwOC00MzFhLTg2NTItOGRmNDRjNzQ3Nzc2; languageCC=zh; i18next=zh; pus=14bd8b18-b929-4c9c-b76d-ca30a8c13ec1'
 
 #=============================================👆test👆====================================================
 
@@ -81,14 +85,12 @@ parameter:
     headers: {'Content-Type': 'application/json'}
     'Content-Type-json': 'application/json'
     'Content-Type-form-data': 'application/x-www-form-urlencoded; charset=UTF-8'
-    'cookie': 'language=zh; SESSION=ZGY2NTYxOTAtN2QwOC00MzFhLTg2NTItOGRmNDRjNzQ3Nzc2; languageCC=zh; i18next=zh; pus=14bd8b18-b929-4c9c-b76d-ca30a8c13ec1'
+
 
 
     #倾听会议定义开启时间
-    start_time: 1654086600000
+    start_time: 1654108980000
 
-    #会议使用虚拟账号地址   文档内的格式必须固定,写死了,要有 5个sheet表,确保索引不越界
-    #excelFile: "D:\\263\\测试虚拟账号.xlsx"
 
 
     #创建倾听会议时长  单位min

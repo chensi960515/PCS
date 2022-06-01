@@ -7,7 +7,6 @@
 import requests
 import json
 import time
-import xlrd
 import logging
 from tools import read_file
 
@@ -86,7 +85,7 @@ class PCS_create():
             "hangUpDuration": hangUpDuration,
             "callOutType": callOutType_custom,
             "isRecord": isRecord,
-            "joinType": 1,
+            "joinType": 0,
             "meetingExplain": "倾听,类型:" + str(callOutType_custom),
             "subscribeHostStatus": subscribeHostStatus,
             "subscribeGuestStatus": subscribeGuestStatus
@@ -157,7 +156,7 @@ class PCS_create():
             "hangUpDuration": hangUpDuration,
             "callOutType": callOutType_custom,
             "isRecord": isRecord,
-            "joinType": 1,
+            "joinType": 0,
             "meetingExplain": "倾听,类型:" + str(callOutType_custom),
             "subscribeHostStatus": subscribeHostStatus,
             "subscribeGuestStatus": subscribeGuestStatus
@@ -236,7 +235,7 @@ class PCS_create():
             "hangUpDuration": hangUpDuration,
             "callOutType": callOutType_custom,
             "isRecord": isRecord,
-            "joinType": 1,
+            "joinType": 0,
             "meetingExplain": "倾听,类型:" + str(callOutType_custom),
             "subscribeHostStatus": subscribeHostStatus,
             "subscribeGuestStatus": subscribeGuestStatus
@@ -324,7 +323,7 @@ class PCS_create():
             "hangUpDuration": hangUpDuration,
             "callOutType": callOutType_custom,
             "isRecord": isRecord,
-            "joinType": 1,
+            "joinType": 0,
             "meetingExplain": "倾听,类型:" + str(callOutType_custom),
             "subscribeHostStatus": subscribeHostStatus,
             "subscribeGuestStatus": subscribeGuestStatus
