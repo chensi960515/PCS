@@ -49,7 +49,8 @@ parameter:
   #测试环境
 
   #虚拟电话存放地址
-  excelFile: "D:\\263\\测试虚拟账号.xlsx"
+  #excelFile: "D:\\263\\测试虚拟账号.xlsx"
+  excelFile: "F:\\263\\测试虚拟电话.xlsx"
 
   #获取token链接
   url_token: "https://apipcstest.263.net/api/getToken"
@@ -96,7 +97,7 @@ parameter:
 
 
   #倾听会议定义开启时间
-  start_time: 1654595160000
+  start_time: 1654614647000
 
 
 

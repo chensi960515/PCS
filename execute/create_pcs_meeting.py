@@ -102,11 +102,10 @@ class Create_Pcs_Meeting():
                                             party_partyTel_1=phone1[i + 1],
                                             party_partyTel_2=phone1[i + 2], hangUpSetting=0, hangUpDuration=0,
                                             party_partyTel_3=phone1[i + 3],
-                                            callOutType_custom=4, isRecord=1,
+                                            callOutType_custom=1, isRecord=1,
                                             subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                             contactTelephone="", contactEmail="")
             del phone1[0:5]
-
 
     def create_pcs_batch_1(self, token):
 
@@ -114,7 +113,7 @@ class Create_Pcs_Meeting():
         end_phone = meet['meeting']['end_phone_1']
         phone1 = phone[start_phone:end_phone]  # 220 + 120*3 + 100*5
         meeting_sum = meet['Mode']['meeting_num1']
-#        start_time = conf['parameter']['start_time']
+        #        start_time = conf['parameter']['start_time']
 
         pcs_create = PCS_createmeeing.PCS_create()
 
@@ -125,7 +124,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_1=phone1[i + 1],
                                               party_partyTel_2=phone1[i + 2], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=1,
-                                              isRecord=2, subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              isRecord=2, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:3]
 
@@ -135,7 +134,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_1=phone1[i + 1],
                                               party_partyTel_2=phone1[i + 2], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:3]
 
@@ -146,8 +145,8 @@ class Create_Pcs_Meeting():
                                                party_partyTel_2=phone1[i + 2], party_partyTel_3=phone1[i + 3],
                                                party_partyTel_4=phone1[i + 4], hangUpSetting=1, hangUpDuration=60,
                                                callOutType_custom=6, isRecord=1,
-                                               subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
-                                              contactTelephone="", contactEmail="")
+                                               subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
+                                               contactTelephone="", contactEmail="")
                 del phone1[0:5]
 
             elif i > 170 and i <= 220:
@@ -157,8 +156,8 @@ class Create_Pcs_Meeting():
                                                party_partyTel_2=phone1[i + 2], party_partyTel_3=phone1[i + 3],
                                                party_partyTel_4=phone1[i + 4], hangUpSetting=1, hangUpDuration=60,
                                                callOutType_custom=7, isRecord=1,
-                                               subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
-                                              contactTelephone="", contactEmail="")
+                                               subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
+                                               contactTelephone="", contactEmail="")
                 del phone1[0:5]
 
     def create_pcs_batch_2(self, token):
@@ -178,7 +177,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_1=phone1[i + 1],
                                               party_partyTel_2=phone1[i + 2], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:3]
 
@@ -210,7 +209,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_1=phone1[i + 1],
                                               party_partyTel_2=phone1[i + 2], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=4,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:3]
 
@@ -230,7 +229,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -239,7 +238,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=6, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -248,7 +247,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=7, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -268,7 +267,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -277,7 +276,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=6, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -286,7 +285,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=7, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -306,7 +305,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -315,7 +314,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=6, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -324,7 +323,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=6, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -344,7 +343,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -353,7 +352,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=6, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -362,7 +361,7 @@ class Create_Pcs_Meeting():
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
                                               callOutType_custom=7, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
+                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:2]
 
@@ -373,8 +372,6 @@ token = pcs_token.get_Token()
 cpm = Create_Pcs_Meeting()
 
 cpm.create_pcs_test(token)
-
-
 
 # cpm.create_pcs_batch_1(token)
 

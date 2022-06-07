@@ -14,6 +14,7 @@
 import requests
 import json
 import logging
+import PCS_getcallphone
 from tools import read_file
 from pcs_package import PCS_getToken
 
@@ -25,6 +26,8 @@ ya = read_file.GetData()
 conf_path = f"../config/config.yaml"
 meet_path = f"../config/meeting.yaml"
 conf = ya.get_data_list(conf_path)
+
+passcode = PCS_getcallphone.get_passcode()
 
 
 cookie = conf['parameter']['cookie']

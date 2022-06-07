@@ -20,6 +20,8 @@ conf = ya.get_data_list(conf_path)
 class PCS_create():
     list_meetingId = []
 
+
+
     def save_meetingID(self, x):
         with open('../eph_data/meetingID.txt', 'a', encoding='utf-8') as f:
             f.write(str(x))
@@ -98,8 +100,9 @@ class PCS_create():
         res = json.loads(response.text)
         self.now_meetingId = res['data']['meetingId']
         self.save_meetingID(self.now_meetingId)
-        self.now_hostPasscode = res['data']['hostPasscode']
-        self.save_hostPasscode(str(now_hostPasscode) + "--2--" + str(times))
+        now_hostPasscode = res['data']['hostPasscode']
+        self.save_hostPasscode(
+            str(now_hostPasscode) + "场景:" + str(callOutType_custom) + "人数:2" + "第" + str(times) + "场")
         if callOutType_custom == 4:
             custom_4_hostPasscode = res['data']['hostPasscode']
             self.save_4_hostPasscode(custom_4_hostPasscode)
@@ -170,7 +173,8 @@ class PCS_create():
         now_meetingId = res['data']['meetingId']
         self.save_meetingID(now_meetingId)
         now_hostPasscode = res['data']['hostPasscode']
-        self.save_hostPasscode(str(now_hostPasscode) + "--3--" + str(times))
+        self.save_hostPasscode(
+            str(now_hostPasscode) + "场景:" + str(callOutType_custom) + "人数:3" + "第" + str(times) + "场")
         if callOutType_custom == 4:
             custom_4_hostPasscode = res['data']['hostPasscode']
             self.save_4_hostPasscode(custom_4_hostPasscode)
@@ -249,7 +253,8 @@ class PCS_create():
         now_meetingId = res['data']['meetingId']
         self.save_meetingID(now_meetingId)
         now_hostPasscode = res['data']['hostPasscode']
-        self.save_hostPasscode(str(now_hostPasscode) + "--4--" + str(times))
+        self.save_hostPasscode(
+            str(now_hostPasscode) + "场景:" + str(callOutType_custom) + "人数:4" + "第" + str(times) + "场")
         if callOutType_custom == 4:
             custom_4_hostPasscode = res['data']['hostPasscode']
             self.save_4_hostPasscode(custom_4_hostPasscode)
@@ -337,7 +342,8 @@ class PCS_create():
         now_meetingId = res['data']['meetingId']
         self.save_meetingID(now_meetingId)
         now_hostPasscode = res['data']['hostPasscode']
-        self.save_hostPasscode(str(now_hostPasscode) + "--5--" + str(times))
+        self.save_hostPasscode(
+            str(now_hostPasscode) + "场景:" + str(callOutType_custom) + "人数:5" + "第" + str(times) + "场")
         if callOutType_custom == 4:
             custom_4_hostPasscode = res['data']['hostPasscode']
             self.save_4_hostPasscode(custom_4_hostPasscode)

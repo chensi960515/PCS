@@ -8,6 +8,7 @@
 """
 import json
 import time
+import PCS_getcallphone
 from tools import DemoLogger
 import requests
 from tools import read_file
@@ -21,15 +22,10 @@ ya = read_file.GetData()
 conf_path = f"../config/config.yaml"
 conf = ya.get_data_list(conf_path)
 
+passcode = PCS_getcallphone.get_passcode()
 
-class Call():
 
-    def get_hostPasscode(self, passcode_path, str_start: int, str_end: int):
-        with open(passcode_path, 'r', encoding='utf-8') as f:
-            for x in f:
-                list_hostPasscode.append(x[str_start:str_end])
-
-        return list_hostPasscode
+class Call:
 
     # 获取会议详情信息 得user_info  用户外呼和挂断
     def query_meetingInfo(self, hostPasscode):
@@ -70,55 +66,50 @@ class Call():
         # log.info(user_info)
         return user_info
 
-    def callParty(self, passcode_path, str_start: int, str_end: int):
+    def request_Party(self, url, passcode_path, callOutType_custom,
+                      callOutType_custom_index,
+                      str_start, str_end):
+        files = []
+        headers = {
+            'Content-Type': conf["parameter"]["Content-Type-form-data"],
+            'cookie': conf["parameter"]["cookie"]
+        }
+
+        hostPasscode_list = passcode.get_call_phone_passcode(passcode_path=passcode_path,
+                                                             callOutType_custom=callOutType_custom,
+                                                             callOutType_custom_index=callOutType_custom_index,
+                                                             str_start=str_start,
+                                                             str_end=str_end)
+        for i in range(len(hostPasscode_list)):
+            parties_list = self.query_meetingInfo(hostPasscode_list[i])
+            for j in range(len(parties_list)):
+                parties_one = [parties_list[j]]
+                payload = {"hostPasscode": hostPasscode_list[i],
+                           "parties": str(parties_one)
+                           }
+                if len(payload["parties"]) != 0:
+                    time.sleep(1)
+                    log.info(payload)
+                    res = requests.request("POST", url, headers=headers, data=payload, files=files)
+                    log.info(res.text)
+
+    def callParty(self, passcode_path="../eph_data/hostPasscode.txt", callOutType_custom=4,
+                  callOutType_custom_index=12,
+                  str_start=0, str_end=9):
         url = conf["parameter"]["url_callParty"]
-        files = []
-        headers = {
-            'Content-Type': conf["parameter"]["Content-Type-form-data"],
-            'cookie': conf["parameter"]["cookie"]
-        }
+        self.request_Party(url=url, passcode_path=passcode_path, callOutType_custom=callOutType_custom,
+                           callOutType_custom_index=callOutType_custom_index,
+                           str_start=str_start, str_end=str_end)
 
-        hostPasscode_list = self.get_hostPasscode(passcode_path=passcode_path, str_start=str_start, str_end=str_end)
-        for i in range(len(hostPasscode_list)):
-            parties_list = self.query_meetingInfo(hostPasscode_list[i])
-            for j in range(len(parties_list)):
-                parties_one = []
-                parties_one.append(parties_list[j])
-                payload = {"hostPasscode": hostPasscode_list[i],
-                           "parties": str(parties_one)
-                           }
-                if len(payload["parties"]) != 0:
-                    time.sleep(1)
-                    log.info(payload)
-                    res = requests.request("POST", url, headers=headers, data=payload, files=files)
-                    log.info(res.text)
-
-    def end_callParty(self, passcode_path, str_start: int, str_end: int):
+    def end_callParty(self, passcode_path="../eph_data/hostPasscode.txt", callOutType_custom=4,
+                      callOutType_custom_index=12,
+                      str_start=0, str_end=9):
         url = conf["parameter"]["url_endcallParty"]
+        self.request_Party(url=url, passcode_path=passcode_path, callOutType_custom=callOutType_custom,
+                           callOutType_custom_index=callOutType_custom_index,
+                           str_start=str_start, str_end=str_end)
 
-        files = []
-        headers = {
-            'Content-Type': conf["parameter"]["Content-Type-form-data"],
-            'cookie': conf["parameter"]["cookie"]
-        }
-
-        hostPasscode_list = self.get_hostPasscode(passcode_path=passcode_path, str_start=str_start, str_end=str_end)
-        for i in range(len(hostPasscode_list)):
-            parties_list = self.query_meetingInfo(hostPasscode_list[i])
-            for j in range(len(parties_list)):
-                parties_one = []
-                parties_one.append(parties_list[j])
-                payload = {"hostPasscode": hostPasscode_list[i],
-                           "parties": str(parties_one)
-                           }
-                if len(payload["parties"]) != 0:
-                    time.sleep(1)
-                    log.info(payload)
-                    res = requests.request("POST", url, headers=headers, data=payload, files=files)
-                    log.info(res.text)
-
-
-call = Call()
+# call = Call()
 
 # call.callParty(passcode_path='../eph_data/custom_4_hostPasscode.txt', str_start=0, str_end=9)
 
