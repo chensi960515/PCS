@@ -8,23 +8,14 @@
 """
 import json
 import time
-
-"""
-    主动外呼客户
-    
-"""
-
+from tools import DemoLogger
 import requests
-import logging
 from tools import read_file
 
-logging.getLogger().setLevel(logging.INFO)
-logging.Formatter("%(lineno)d")
-
+log = DemoLogger().logger
 list_hostPasscode = []
 data_parties = []
-user_dict = {"name":"","phone":"","role":""}
-
+user_dict = {"name": "", "phone": "", "role": ""}
 
 ya = read_file.GetData()
 conf_path = f"../config/config.yaml"
@@ -33,56 +24,102 @@ conf = ya.get_data_list(conf_path)
 
 class Call():
 
-
-    def get_hostPasscode(self):
-        with open('../eph_data/custom_4_hostPasscode.txt', 'r', encoding='utf-8') as f:
+    def get_hostPasscode(self, passcode_path, str_start: int, str_end: int):
+        with open(passcode_path, 'r', encoding='utf-8') as f:
             for x in f:
-                list_hostPasscode.append(x[0:9])
+                list_hostPasscode.append(x[str_start:str_end])
 
+        return list_hostPasscode
 
-    def  query_meetingInfo(self,hostPasscode):
-
+    # 获取会议详情信息 得user_info  用户外呼和挂断
+    def query_meetingInfo(self, hostPasscode):
+        """
+        获取会议信息方法中,获取一次,直接请求外呼一次,后续调用无需再调用callParty方法
+        :param hostPasscode:
+        :return:
+        """
+        user_info = []
         url = conf["parameter"]["url_query_Meeting"] + str(hostPasscode)
         payload = {}
         headers = {
-            'Content-Type' : conf["parameter"]["Content-Type-json"],
+            'Content-Type': conf["parameter"]["Content-Type-json"],
             'cookie': conf["parameter"]["cookie"]
         }
         response = requests.request("POST", url, headers=headers, data=payload)
         res = json.loads(response.text)
-        data_parties = res['parties']
+        if res['status'] == 403:
+            log.error("检查下配置文件中的cookie,是否过期")
+        else:
+            try:
+                data_parties = res['parties']
+            except Exception as e:
+                log.error(e)
 
-        for i in range(len(data_parties)):
-            user_info = []
-            if data_parties[i]["role"] != 'g':
-                user_dict["name"] = data_parties[i]["name"]
-                user_dict["phone"] = data_parties[i]["phone"]
-                user_dict["role"] = data_parties[i]["role"]
-                user_info.append({'name': user_dict["name"], 'phone': user_dict["phone"], 'role': user_dict["role"]})
-#            logging.info(user_dict)
-            time.sleep(1)
-            self.callParty(hostPasscode,user_info)
+        try:
+            # 提取外呼所需参数
+            for i in range(len(data_parties)):
+                # 只外呼咨询客户,剔除顾问 g
+                if data_parties[i]["role"] != 'g':
+                    user_dict["name"] = data_parties[i]["name"]
+                    user_dict["phone"] = data_parties[i]["phone"]
+                    user_dict["role"] = data_parties[i]["role"]
+                    user_info.append(
+                        {'name': user_dict["name"], 'phone': user_dict["phone"], 'role': user_dict["role"]})
+        except  Exception as e:
+            log.error(e)
+        # log.info(user_info)
+        return user_info
 
-
-    def callParty(self,hostPasscode,user_info):
+    def callParty(self, passcode_path, str_start: int, str_end: int):
         url = conf["parameter"]["url_callParty"]
-
-        payload = {"hostPasscode": hostPasscode,
-                   "parties": str(user_info)
+        files = []
+        headers = {
+            'Content-Type': conf["parameter"]["Content-Type-form-data"],
+            'cookie': conf["parameter"]["cookie"]
         }
+
+        hostPasscode_list = self.get_hostPasscode(passcode_path=passcode_path, str_start=str_start, str_end=str_end)
+        for i in range(len(hostPasscode_list)):
+            parties_list = self.query_meetingInfo(hostPasscode_list[i])
+            for j in range(len(parties_list)):
+                parties_one = []
+                parties_one.append(parties_list[j])
+                payload = {"hostPasscode": hostPasscode_list[i],
+                           "parties": str(parties_one)
+                           }
+                if len(payload["parties"]) != 0:
+                    time.sleep(1)
+                    log.info(payload)
+                    res = requests.request("POST", url, headers=headers, data=payload, files=files)
+                    log.info(res.text)
+
+    def end_callParty(self, passcode_path, str_start: int, str_end: int):
+        url = conf["parameter"]["url_endcallParty"]
 
         files = []
         headers = {
-            'Content-Type' : conf["parameter"]["Content-Type-form-data"],
+            'Content-Type': conf["parameter"]["Content-Type-form-data"],
             'cookie': conf["parameter"]["cookie"]
         }
-        if len(payload["parties"]) != 0:
-            res = requests.request("POST", url, headers=headers, data=payload, files=files)
-            logging.info(payload)
-            logging.info(time.asctime( time.localtime(time.time()) ))
+
+        hostPasscode_list = self.get_hostPasscode(passcode_path=passcode_path, str_start=str_start, str_end=str_end)
+        for i in range(len(hostPasscode_list)):
+            parties_list = self.query_meetingInfo(hostPasscode_list[i])
+            for j in range(len(parties_list)):
+                parties_one = []
+                parties_one.append(parties_list[j])
+                payload = {"hostPasscode": hostPasscode_list[i],
+                           "parties": str(parties_one)
+                           }
+                if len(payload["parties"]) != 0:
+                    time.sleep(1)
+                    log.info(payload)
+                    res = requests.request("POST", url, headers=headers, data=payload, files=files)
+                    log.info(res.text)
+
 
 call = Call()
-call.get_hostPasscode()
 
-for i in range(len(list_hostPasscode)):
-    call.query_meetingInfo(list_hostPasscode[i])
+# call.callParty(passcode_path='../eph_data/custom_4_hostPasscode.txt', str_start=0, str_end=9)
+
+# call.end_callParty(passcode_path='../eph_data/custom_4_hostPasscode.txt', str_start=0, str_end=9)

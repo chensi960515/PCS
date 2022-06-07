@@ -43,6 +43,7 @@ class Create_Pcs_Meeting():
         pcs_create = PCS_createmeeing.PCS_create()
 
         for i in range(meeting_sum + 1):
+            """
             if i > 0 and i <= 2:
                 pcs_create.create_Meeting_two(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
@@ -94,6 +95,18 @@ class Create_Pcs_Meeting():
                                                 subscribeHostStatus=0, subscribeGuestStatus=0,contactName="",
                                               contactTelephone="", contactEmail="")
                 del phone1[0:5]
+            
+            """
+            pcs_create.create_Meeting_thred(token=token, times=i, start_time=start_time,
+                                            party_partyTel_0=phone1[i],
+                                            party_partyTel_1=phone1[i + 1],
+                                            party_partyTel_2=phone1[i + 2], hangUpSetting=0, hangUpDuration=0,
+                                            party_partyTel_3=phone1[i + 3],
+                                            callOutType_custom=4, isRecord=1,
+                                            subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
+                                            contactTelephone="", contactEmail="")
+            del phone1[0:5]
+
 
     def create_pcs_batch_1(self, token):
 
@@ -359,18 +372,18 @@ token = pcs_token.get_Token()
 
 cpm = Create_Pcs_Meeting()
 
-#cpm.create_pcs_test(token)
+cpm.create_pcs_test(token)
 
 
 
-cpm.create_pcs_batch_1(token)
-#
-cpm.create_pcs_batch_2(token)
-#
+# cpm.create_pcs_batch_1(token)
+
+# cpm.create_pcs_batch_2(token)
+
 # cpm.create_pcs_batch_3(token)
-#
+
 # cpm.create_pcs_batch_4(token)
-#
+
 # cpm.create_pcs_batch_5(token)
-#
+
 # cpm.create_pcs_batch_6(token)
