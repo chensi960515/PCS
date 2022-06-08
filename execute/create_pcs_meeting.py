@@ -122,20 +122,17 @@ class Create_Pcs_Meeting():
                 pcs_create.create_Meeting_two(token=token, times=i, start_time=1654115700000,
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1],
-                                              party_partyTel_2=phone1[i + 2], hangUpSetting=0, hangUpDuration=0,
+                                              party_partyTel_2=phone1[i + 2],
                                               callOutType_custom=1,
-                                              isRecord=2, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              isRecord=2)
                 del phone1[0:3]
 
             elif i > 100 and i <= 120:
                 pcs_create.create_Meeting_two(token=token, times=i, start_time=1654115700000,
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1],
-                                              party_partyTel_2=phone1[i + 2], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_2=phone1[i + 2],
+                                              callOutType_custom=1)
                 del phone1[0:3]
 
             elif i > 120 and i <= 170:
@@ -144,9 +141,8 @@ class Create_Pcs_Meeting():
                                                party_partyTel_1=phone1[i + 1],
                                                party_partyTel_2=phone1[i + 2], party_partyTel_3=phone1[i + 3],
                                                party_partyTel_4=phone1[i + 4], hangUpSetting=1, hangUpDuration=60,
-                                               callOutType_custom=6, isRecord=1,
-                                               subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                               contactTelephone="", contactEmail="")
+                                               callOutType_custom=6
+                                               )
                 del phone1[0:5]
 
             elif i > 170 and i <= 220:
@@ -155,9 +151,8 @@ class Create_Pcs_Meeting():
                                                party_partyTel_1=phone1[i + 1],
                                                party_partyTel_2=phone1[i + 2], party_partyTel_3=phone1[i + 3],
                                                party_partyTel_4=phone1[i + 4], hangUpSetting=1, hangUpDuration=60,
-                                               callOutType_custom=7, isRecord=1,
-                                               subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                               contactTelephone="", contactEmail="")
+                                               callOutType_custom=7
+                                               )
                 del phone1[0:5]
 
     def create_pcs_batch_2(self, token):
@@ -175,10 +170,8 @@ class Create_Pcs_Meeting():
                 pcs_create.create_Meeting_two(token=token, times=i, start_time=1654115880000,
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1],
-                                              party_partyTel_2=phone1[i + 2], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_2=phone1[i + 2],
+                                              callOutType_custom=1)
                 del phone1[0:3]
 
             elif i > 39 and i <= 59:
@@ -186,9 +179,8 @@ class Create_Pcs_Meeting():
                                                party_partyTel_0=phone1[i],
                                                party_partyTel_1=phone1[i + 1],
                                                party_partyTel_2=phone1[i + 2], party_partyTel_3=phone1[i + 3],
-                                               party_partyTel_4=phone1[i + 4], hangUpSetting=0, hangUpDuration=0,
-                                               callOutType_custom=6, isRecord=1,
-                                               subscribeHostStatus=0, subscribeGuestStatus=3, contactName="陈旭",
+                                               party_partyTel_4=phone1[i + 4],
+                                               callOutType_custom=6, subscribeGuestStatus=3, contactName="陈旭",
                                                contactTelephone="13391619661", contactEmail="xu.chen1@net263.com")
                 del phone1[0:5]
 
@@ -197,8 +189,8 @@ class Create_Pcs_Meeting():
                                                party_partyTel_0=phone1[i],
                                                party_partyTel_1=phone1[i + 1],
                                                party_partyTel_2=phone1[i + 2], party_partyTel_3=phone1[i + 3],
-                                               party_partyTel_4=phone1[i + 4], hangUpSetting=0, hangUpDuration=0,
-                                               callOutType_custom=7, isRecord=1,
+                                               party_partyTel_4=phone1[i + 4],
+                                               callOutType_custom=7,
                                                subscribeHostStatus=3, subscribeGuestStatus=3, contactName="陈旭",
                                                contactTelephone="13391619661", contactEmail="xu.chen1@net263.com")
                 del phone1[0:5]
@@ -207,10 +199,8 @@ class Create_Pcs_Meeting():
                 pcs_create.create_Meeting_two(token=token, times=i, start_time=1654115880000,
                                               party_partyTel_0=phone1[i],
                                               party_partyTel_1=phone1[i + 1],
-                                              party_partyTel_2=phone1[i + 2], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=4,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_2=phone1[i + 2],
+                                              callOutType_custom=4)
                 del phone1[0:3]
 
     def create_pcs_batch_3(self, token):
@@ -227,28 +217,22 @@ class Create_Pcs_Meeting():
             if i > 0 and i <= 100:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=1)
                 del phone1[0:2]
 
             elif i > 100 and i <= 150:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=6, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=6)
                 del phone1[0:2]
 
             elif i > 150 and i <= 200:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=7, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=7)
                 del phone1[0:2]
 
     def create_pcs_batch_4(self, token):
@@ -265,28 +249,22 @@ class Create_Pcs_Meeting():
             if i > 0 and i <= 100:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=1)
                 del phone1[0:2]
 
             elif i > 100 and i <= 150:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=6, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=6)
                 del phone1[0:2]
 
             elif i > 150 and i <= 200:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=7, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=7)
                 del phone1[0:2]
 
     def create_pcs_batch_5(self, token):
@@ -303,28 +281,22 @@ class Create_Pcs_Meeting():
             if i > 0 and i <= 100:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=1, )
                 del phone1[0:2]
 
             elif i > 100 and i <= 150:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=6, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=6)
                 del phone1[0:2]
 
             elif i > 150 and i <= 200:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=6, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=6)
                 del phone1[0:2]
 
     def create_pcs_batch_6(self, token):
@@ -338,31 +310,18 @@ class Create_Pcs_Meeting():
         pcs_create = PCS_createmeeing.PCS_create()
 
         for i in range(meeting_sum + 1):
-            if i > 0 and i <= 20:
+            if 0 < i <= 25:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=1,
-                                              isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=6)
                 del phone1[0:2]
 
-            elif i > 20 and i <= 35:
+            elif 25 < i <= 50:
                 pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
                                               party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=6, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
-                del phone1[0:2]
-
-            elif i > 35 and i <= 50:
-                pcs_create.create_Meeting_one(token=token, times=i, start_time=start_time,
-                                              party_partyTel_0=phone1[i],
-                                              party_partyTel_1=phone1[i + 1], hangUpSetting=0, hangUpDuration=0,
-                                              callOutType_custom=7, isRecord=1,
-                                              subscribeHostStatus=0, subscribeGuestStatus=0, contactName="",
-                                              contactTelephone="", contactEmail="")
+                                              party_partyTel_1=phone1[i + 1],
+                                              callOutType_custom=7)
                 del phone1[0:2]
 
 

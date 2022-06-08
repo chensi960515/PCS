@@ -20,8 +20,6 @@ conf = ya.get_data_list(conf_path)
 class PCS_create():
     list_meetingId = []
 
-
-
     def save_meetingID(self, x):
         with open('../eph_data/meetingID.txt', 'a', encoding='utf-8') as f:
             f.write(str(x))
@@ -44,8 +42,9 @@ class PCS_create():
             k = f.read()
 
     def create_Meeting_one(self, token, times, start_time, party_partyTel_0, party_partyTel_1, callOutType_custom,
-                           hangUpSetting, hangUpDuration, isRecord, subscribeHostStatus, subscribeGuestStatus,
-                           contactName, contactTelephone, contactEmail):
+                           hangUpSetting=0, hangUpDuration=0, isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,
+                           contactName="", contactTelephone="", contactEmail=""
+                           ):
 
         url = conf['parameter']['url_create_Meeting']
 
@@ -109,8 +108,9 @@ class PCS_create():
         return res
 
     def create_Meeting_two(self, token, times, start_time, party_partyTel_0, party_partyTel_1, party_partyTel_2,
-                           callOutType_custom, hangUpSetting, hangUpDuration, isRecord, subscribeHostStatus,
-                           subscribeGuestStatus, contactName, contactTelephone, contactEmail):
+                           callOutType_custom, hangUpSetting=0, hangUpDuration=0, isRecord=1, subscribeHostStatus=0,
+                           subscribeGuestStatus=0,
+                           contactName="", contactTelephone="", contactEmail=""):
 
         url = conf['parameter']['url_create_Meeting']
         payload_client_two = json.dumps({
@@ -181,8 +181,9 @@ class PCS_create():
         return res
 
     def create_Meeting_thred(self, token, times, start_time, party_partyTel_0, party_partyTel_1, party_partyTel_2,
-                             party_partyTel_3, callOutType_custom, hangUpSetting, hangUpDuration, isRecord,
-                             subscribeHostStatus, subscribeGuestStatus, contactName, contactTelephone, contactEmail):
+                             party_partyTel_3, callOutType_custom, hangUpSetting=0, hangUpDuration=0, isRecord=1,
+                             subscribeHostStatus=0, subscribeGuestStatus=0,
+                             contactName="", contactTelephone="", contactEmail=""):
 
         url = conf['parameter']['url_create_Meeting']
         payload_client_two = json.dumps({
@@ -261,9 +262,9 @@ class PCS_create():
         return res
 
     def create_Meeting_four(self, token, times, start_time, party_partyTel_0, party_partyTel_1, party_partyTel_2,
-                            party_partyTel_3, party_partyTel_4, callOutType_custom, hangUpSetting, hangUpDuration,
-                            isRecord, subscribeHostStatus, subscribeGuestStatus, contactName, contactTelephone,
-                            contactEmail):
+                            party_partyTel_3, party_partyTel_4, callOutType_custom, hangUpSetting=0, hangUpDuration=0,
+                            isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,
+                            contactName="", contactTelephone="", contactEmail=""):
 
         url = conf['parameter']['url_create_Meeting']
         payload_client_two = json.dumps({
