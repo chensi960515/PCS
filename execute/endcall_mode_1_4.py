@@ -13,7 +13,7 @@ from pcs_package import PCS_call
 
 call = PCS_call.Call()
 
-#call.end_callParty(callOutType_custom=4)
+call.end_callParty(callOutType_custom=4)
 
 
-call.end_callParty(callOutType_custom=1)
+#call.end_callParty(callOutType_custom=1)
