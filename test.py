@@ -6,17 +6,26 @@
 @file: test_read_file.py
 @time: 2022/5/30  21:39
 """
+from itertools import count
 
 from tools import read_file
 
 
-ya = read_file.GetPages()
+ya = read_file.GetData()
 
-conf_path = f".\config\config.yaml"
+conf_path = f".\config\meeting.yaml"
 
 
 conf = ya.get_data_list(conf_path)
 
-url = conf['test']['url_token']
+# data = conf['data']
+# data['token'] = '123123'
 
-print(url)
+keys = conf.keys()
+print(type(conf))
+print(type(keys))
+for key in keys:
+    if key[:4] == 'data':
+        print(key)
+
+

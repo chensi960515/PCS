@@ -7,82 +7,86 @@ parameter:
   #=============================================👇dep👇====================================================
   #生产环境
 
-  #    生产电话存放地址
-  #    excelFile: "D:\\263\\电话.xlsx"
-  #    #获取token链接
-  #    url_token: "https://apipcs.263.net/api/getToken"
-  #
-  #    #创建倾听电话会议链接
-  #    url_create_Meeting: "https://apipcs.263.net/api/createMeeting"
-  #
-  #    #获取倾听电话会议详细信息链接
-  #    url_query_Meeting: "https://pcs.263.net/meetingRoom/queryMeetingInfo/"
-  #
-  #    #取消会议(只针对未开启或已过期得倾听会议)
-  #    url_cancelMeeting: "https://apipcs.263.net/api/cancelMeeting"
-  #
-  #    #结束会议
-  #    ur_endMeeting: "https://pcs.263.net/meetingRoom/endMeeting/"
-  #
-  #    #
-  #    #倾听电话会议主动外呼客户
-  #    url_callParty: "https://pcs.263.net/meetingRoom/control-callParty"
-  #
-  #    #倾听电话会议主动挂断外呼客户
-  #    url_endcallParty: "https://pcs.263.net/meetingRoom/control-endCallParty"
-  #
-  #    #客户UID
-  #    customerId: "2975223540"
-  #
-  #    #客户密码
-  #    secret: "1Te6hb3be0T924f3"
-  #
-  #    #创建会议的账户    密码  net263
-  #    userAccount: "kangyao.xue@net263.com"
-  #
-  #    cookie: "language=zh; languageCC=zh; pus=e1701db9-e8dc-4bb9-a440-01fbf21ece63; SESSION=YzBhN2U4YTktN2FhYi00MGJlLWIzZmUtMzMyMDBlNDk5NjUx; i18next=zh"
+ #     生产电话存放地址
+  excelFile: "D:\\263\\20220608压测电话.xlsx"
+      #获取token链接
+  url_token: "https://apipcs.263.net/api/getToken"
 
+      #创建倾听电话会议链接
+  url_create_Meeting: "https://apipcs.263.net/api/createMeeting"
+
+      #获取倾听电话会议详细信息链接
+  url_query_Meeting: "https://pcs.263.net/meetingRoom/queryMeetingInfo/"
+
+      #取消会议(只针对未开启或已过期得倾听会议)
+  url_cancelMeeting: "https://apipcs.263.net/api/cancelMeeting"
+
+      #结束会议
+  ur_endMeeting: "https://pcs.263.net/meetingRoom/endMeeting/"
+
+      #
+      #倾听电话会议主动外呼客户
+  url_callParty: "https://pcs.263.net/meetingRoom/control-callParty"
+
+      #倾听电话会议主动挂断外呼客户
+  url_endcallParty: "https://pcs.263.net/meetingRoom/control-endCallParty"
+
+      #客户UID
+  customerId: "2975223540"
+
+      #客户密码
+  secret: "1Te6hb3be0T924f3"
+
+      #创建会议的账户    密码  net263
+  userAccount: "kangyao.xue@net263.com"
+
+  cookie: "anguage=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; languageCC=zh; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654120312,1654722435; Qs_lvt_326460=1654120311%2C1654722434; Qs_pv_326460=2535230191188450300%2C4074267285746521600; SESSION=MTk0MTk5NGUtZjIyOS00MTIzLTg3YjktMDdmZmVjZjgzMzQz; i18next=zh; pus=7c008987-3fba-4ef5-8f41-a68999fd5351"
+      #userAccount: "xu.chen1@net263"
+      #cookie:
+
+      #userAccount: "chen1@net263"
+      #cookie:
   #=============================================👆dep👆====================================================
 
 
   #=============================================👇test👇====================================================
   #测试环境
-
-  #虚拟电话存放地址
-  #excelFile: "D:\\263\\测试虚拟账号.xlsx"
-  excelFile: "F:\\263\\测试虚拟电话.xlsx"
-
-  #获取token链接
-  url_token: "https://apipcstest.263.net/api/getToken"
-
-  #创建倾听电话会议链接
-  url_create_Meeting: "https://apipcstest.263.net/api/createMeeting"
-
-  #获取倾听电话会议详细信息链接
-  url_query_Meeting: "https://pcstest.263.net/meetingRoom/queryMeetingInfo/"
-
-  #取消会议(只针对未开启或已过期得倾听会议)
-  url_cancelMeeting: "https://apipcstest.263.net/api/cancelMeeting"
-
-  #结束会议
-  ur_endMeeting: "https://pcstest.263.net/meetingRoom/endMeeting/"
-
-  #倾听电话会议主动外呼客户
-  url_callParty: "https://pcstest.263.net/meetingRoom/control-callParty"
-
-  #倾听电话会议主动挂断外呼客户
-  url_endcallParty: "https://pcstest.263.net/meetingRoom/control-endCallParty"
-
-  #客户UID
-  customerId: "U10000247885"
-
-  #客户密码
-  secret: "123456"
-
-  #创建会议的账户
-  userAccount: "xu.chen1@net263.com"
-
-  'cookie': 'language=zh; languageCC=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654120312; Qs_lvt_326460=1654120311; Qs_pv_326460=2535230191188450300; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; SESSION=OGQwYTg0YmItNTRiNS00YTRiLWI5ZWItMGQyNWFkNjRhODUx; i18next=zh; pus=522a2dec-a3c5-41e5-ae04-e6fdbe66673b'
+#
+#  #虚拟电话存放地址
+#  #excelFile: "D:\\263\\测试虚拟账号.xlsx"
+#  excelFile: "F:\\263\\测试虚拟电话.xlsx"
+#
+#  #获取token链接
+#  url_token: "https://apipcstest.263.net/api/getToken"
+#
+#  #创建倾听电话会议链接
+#  url_create_Meeting: "https://apipcstest.263.net/api/createMeeting"
+#
+#  #获取倾听电话会议详细信息链接
+#  url_query_Meeting: "https://pcstest.263.net/meetingRoom/queryMeetingInfo/"
+#
+#  #取消会议(只针对未开启或已过期得倾听会议)
+#  url_cancelMeeting: "https://apipcstest.263.net/api/cancelMeeting"
+#
+#  #结束会议
+#  ur_endMeeting: "https://pcstest.263.net/meetingRoom/endMeeting/"
+#
+#  #倾听电话会议主动外呼客户
+#  url_callParty: "https://pcstest.263.net/meetingRoom/control-callParty"
+#
+#  #倾听电话会议主动挂断外呼客户
+#  url_endcallParty: "https://pcstest.263.net/meetingRoom/control-endCallParty"
+#
+#  #客户UID
+#  customerId: "U10000247885"
+#
+#  #客户密码
+#  secret: "123456"
+#
+#  #创建会议的账户
+#  userAccount: "xu.chen1@net263.com"
+#
+#  'cookie': 'language=zh; languageCC=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654120312; Qs_lvt_326460=1654120311; Qs_pv_326460=2535230191188450300; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; SESSION=OGQwYTg0YmItNTRiNS00YTRiLWI5ZWItMGQyNWFkNjRhODUx; i18next=zh; pus=522a2dec-a3c5-41e5-ae04-e6fdbe66673b'
 
   #=============================================👆test👆====================================================
 
@@ -97,8 +101,8 @@ parameter:
 
 
   #倾听会议定义开启时间
-  start_time: 1654614647000
-  start_time_650: 1654614647000
+  start_time: 1655401560000
+  #start_time_650: 1654614647000
 
 
 

@@ -14,12 +14,14 @@ logging.getLogger().setLevel(logging.INFO)
 
 ya = read_file.GetData()
 conf_path = f"../config/config.yaml"
+meeting_path = f"../config/meeting.yaml"
 conf = ya.get_data_list(conf_path)
+meeting = ya.get_data_list(meeting_path)
 
 
 class PCS_create:
     list_meetingId = []
-    #电话列表
+    # 电话列表
     party_partyTel = []
 
     def save_meetingID(self, x):
@@ -43,45 +45,63 @@ class PCS_create:
         with open('../eph_data/custom_4_hostPasscode.txt', 'r', encoding='utf-8') as f:
             k = f.read()
 
-    #参数提取出来,便于控制
+    # 参数提取出来,便于控制
     partyList = []
-    counsellor_dict = {
-        "partyName": party_partyTel[0],
-        "partyType": "0",
-        "countryCode": "",
-        "areaCode": "",
-        "partyTel": party_partyTel[0],
-        "partyEmail": "",
-        "isCallOut": "1"
-    }
-    user_dict = {
-        "partyName": party_partyTel[0],
-        "partyType": "1",
-        "countryCode": "",
-        "areaCode": "",
-        "partyTel": party_partyTel[0],
-        "partyEmail": "",
-        "isCallOut": "1"
-    }
 
-    def create_Meeting(self,token, times, start_time, counsellor_num=1, user_num=0):
+    def setUserInfo(self, party_partyTel: list, counsellor: int):
+        user_sum = len(party_partyTel) + 1
+        counsellor_num = counsellor
+        user_num = user_sum - counsellor_num
+
+        for i in range(user_sum):
+            if i < counsellor_num:
+                self.partyList.append({
+                    "partyName": party_partyTel[i],
+                    "partyType": "0",
+                    "countryCode": "",
+                    "areaCode": "",
+                    "partyTel": party_partyTel[i],
+                    "partyEmail": "",
+                    "isCallOut": "1"
+                })
+            elif counsellor_num <= i < user_num:
+                self.partyList.append({
+                    "partyName": party_partyTel[i],
+                    "partyType": "1",
+                    "countryCode": "",
+                    "areaCode": "",
+                    "partyTel": party_partyTel[i],
+                    "partyEmail": "",
+                    "isCallOut": "1"
+                })
+
+        return self.partyList
+
+
+    def create_Meeting(self, param, token, times, start_time,party_partyTel, counsellor_num=1, partyTel_num=1, userAccount,):
+
+        data = param
+
+
+
         try:
+            user_num = partyTel_num - counsellor_num
             if type(counsellor_num) is int and counsellor_num > 0:
-                for i in range(counsellor_num):
-                    pass
+                self.setUserInfo(party_partyTel, counsellor_num)
+
+
 
             elif counsellor_num == 0:
-                    logging.error("==========会议必须存在一个顾问===========")
-            else :
+                logging.error("==========会议必须存在一个顾问===========")
+            else:
                 logging.error("==========counsellor_num参数错误===========")
 
 
         except Exception as e:
             logging.error(e)
 
-
-
-    def create_Meeting_four(self, token, times, start_time, num_guwen,num_user,party_partyTel, callOutType_custom, hangUpSetting=0, hangUpDuration=0,
+    def create_Meeting_four(self, token, times, start_time, num_guwen, num_user, party_partyTel, callOutType_custom,
+                            hangUpSetting=0, hangUpDuration=0,
                             isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,
                             contactName="", contactTelephone="", contactEmail=""):
 
@@ -144,3 +164,4 @@ class PCS_create:
             custom_4_hostPasscode = res['data']['hostPasscode']
             self.save_4_hostPasscode(custom_4_hostPasscode)
         return res
+

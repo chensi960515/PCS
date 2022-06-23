@@ -1,16 +1,21 @@
 meeting:
-  start_phone_test: 0
-  end_phone_test: 70
+  start_phone_test: 3500
+  end_phone_test: 3600
 
   #phone 切片
-  start_phone: 0
-  end_phone: 2000
+  start_phone: 2000
+  end_phone: 3000
 
-  start_phone_650: 2000
-  end_phone_650: 3500
+#  start_phone: 1000
+#  end_phone: 2000
+#
+#  start_phone: 2000
+#  end_phone: 3000
+#
 
-  start_phone_2: 1100
-  end_phone_2: 1700
+
+  start_phone_2: 3500
+  end_phone_2: 3600
 
   start_phone_3: 1700
   end_phone_3: 2300
@@ -26,6 +31,33 @@ meeting:
 
 Mode:
     #共创建多少场畅听会议
-    meeting_num_test: 5
-    meeting_num: 350
+    meeting_num_test: 9
+    meeting_num: 120
     meeting_num_650: 650
+
+data:
+  token:
+  userAccount:
+  meetingTitle:
+  startTime:
+  duration:
+  contactList: [
+                {
+                    "contactName": '',
+                    "contactTelephone": '',
+                    "contactEmail": ''
+                }
+            ]
+  hangUpSetting:
+  hangUpDuration:
+  isRecord:
+  joinType:
+  meetingExplain:
+  subscribeHostStatus:
+  subscribeGuestStatus:
+
+data2:
+  token:
+
+data3:
+  token:
