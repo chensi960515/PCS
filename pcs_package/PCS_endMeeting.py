@@ -32,7 +32,7 @@ passcode = PCS_getcallphone.get_passcode()
 
 cookie = conf['parameter']['cookie']
 
-test_url = conf['parameter']['ur_endMeeting']
+test_url = conf['parameter']['url_endMeeting']
 
 list_hostPasscode = []
 

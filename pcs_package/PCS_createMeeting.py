@@ -9,6 +9,7 @@ import json
 import time
 import logging
 from tools import read_file
+from pcs_package import PCS_getToken
 
 logging.getLogger().setLevel(logging.INFO)
 
@@ -17,6 +18,9 @@ conf_path = f"../config/config.yaml"
 meeting_path = f"../config/meeting.yaml"
 conf = ya.get_data_list(conf_path)
 meeting = ya.get_data_list(meeting_path)
+
+Token = PCS_getToken.Get_Token()
+token = Token.get_Token()
 
 
 class PCS_create:
@@ -46,16 +50,18 @@ class PCS_create:
             k = f.read()
 
     # 参数提取出来,便于控制
-    partyList = []
+
+    create_data = meeting['data']
 
     def setUserInfo(self, party_partyTel: list, counsellor: int):
+        partyList = []
         user_sum = len(party_partyTel) + 1
         counsellor_num = counsellor
         user_num = user_sum - counsellor_num
 
         for i in range(user_sum):
             if i < counsellor_num:
-                self.partyList.append({
+                partyList.append({
                     "partyName": party_partyTel[i],
                     "partyType": "0",
                     "countryCode": "",
@@ -65,7 +71,7 @@ class PCS_create:
                     "isCallOut": "1"
                 })
             elif counsellor_num <= i < user_num:
-                self.partyList.append({
+                partyList.append({
                     "partyName": party_partyTel[i],
                     "partyType": "1",
                     "countryCode": "",
@@ -75,21 +81,75 @@ class PCS_create:
                     "isCallOut": "1"
                 })
 
-        return self.partyList
+        return partyList
 
+    def single_meeting_partyTel(self, party_partyTel: list, counsellor_num: int, user_num: int, meeting_num: int):
+        """
+        切割 虚拟接入号,为每场会议进行分配
+        :param party_partyTel:
+        :param counsellor_num:
+        :param user_num:
+        :param meeting_num:
+        :return:
+        """
+        try:
+            single_meeting_list = []
+            partyTel = []
+            del_num = len(party_partyTel) % (counsellor_num + user_num)
+            creat_num = int(len(party_partyTel) / (counsellor_num + user_num))
+            logging.info(del_num)
+            # 足够  不管是否有余,直接切
+            if creat_num >= meeting_num:
+                logging.info("==========接入号足够,正常分配==========")
+                partyTel = party_partyTel[:(counsellor_num + user_num) * meeting_num]
+            # 不够,无余 不切,全部分配
+            elif creat_num < meeting_num and del_num == 0:
+                logging.info("==========接入号不足1,只能分配" + str(creat_num) + "场会议==========")
+                partyTel = party_partyTel
+            # 不够,有余 剩余全删,再分配
+            elif creat_num < meeting_num and del_num > 0:
+                logging.info("==========接入号不足2,只能分配" + str(creat_num) + "场会议==========")
+                partyTel = party_partyTel[:-del_num]
 
-    def create_Meeting(self, param, token, times, start_time,party_partyTel, counsellor_num=1, partyTel_num=1, userAccount,):
+            if type(counsellor_num) is int and 0 < counsellor_num <= 3:
+                for i in range(0, len(partyTel), counsellor_num + user_num):
+                    single_meeting_list.append(partyTel[i: i + counsellor_num + user_num])
+                return single_meeting_list
+            elif counsellor_num == 0:
+                logging.error("==========会议必须存在一个顾问===========")
+            elif counsellor_num > 3:
+                logging.error("==========每场会议中,顾问人数不可超过3人===========")
+            else:
+                logging.error("==========counsellor_num参数错误===========")
+        except Exception as e:
+            logging.error(e)
 
-        data = param
-
-
+    def create_Meeting(self, param: dict, party_partyTel: list, counsellor_num, user_num, meeting_num):
+        """
+        :param meeting_num:
+        :param param:
+        :param party_partyTel:  需要使用的电话列表(只对每一场会议来说的)
+        :param counsellor_num:  需要创建的顾问数量(一场会议中)
+        :param user_num:
+        :return:
+        """
 
         try:
-            user_num = partyTel_num - counsellor_num
+            self.single_meeting_partyTel(party_partyTel=party_partyTel, counsellor_num=counsellor_num,
+                                         user_num=user_num, meeting_num=meeting_num)
+            data = param
             if type(counsellor_num) is int and counsellor_num > 0:
-                self.setUserInfo(party_partyTel, counsellor_num)
+                data['token'] = token
+                data['partyList'] = self.setUserInfo(party_partyTel, counsellor_num)
+                data['meetingTitle'] = "No." + "场景" + str(data['callOutType']) + "人数" + str(
+                    len(party_partyTel) + 1)
 
+                url = conf['parameter']['url_create_Meeting']
+                headers = conf['parameter']['headers']
+                logging.info(party_partyTel)
 
+                # response = requests.request("POST", url, headers=headers, data=json.dumps(data))
+                # return response.text
 
             elif counsellor_num == 0:
                 logging.error("==========会议必须存在一个顾问===========")
@@ -100,68 +160,11 @@ class PCS_create:
         except Exception as e:
             logging.error(e)
 
-    def create_Meeting_four(self, token, times, start_time, num_guwen, num_user, party_partyTel, callOutType_custom,
-                            hangUpSetting=0, hangUpDuration=0,
-                            isRecord=1, subscribeHostStatus=0, subscribeGuestStatus=0,
-                            contactName="", contactTelephone="", contactEmail=""):
 
-        url = conf['parameter']['url_create_Meeting']
-        payload_client_two = json.dumps({
-            "token": token,
-            "userAccount": conf['parameter']['userAccount'],
-            "meetingTitle": "No." + str(times) + "-场景" + str(callOutType_custom) + "-录" + str(isRecord) + "-客" + str(
-                subscribeHostStatus) + "-顾" + str(subscribeGuestStatus) + "-结" + str(hangUpDuration),
-            "startTime": start_time,
-            "duration": "120",
-            "partyList": [
-                {
-                    "partyName": party_partyTel[0],
-                    "partyType": "0",
-                    "countryCode": "",
-                    "areaCode": "",
-                    "partyTel": party_partyTel[0],
-                    "partyEmail": "",
-                    "isCallOut": "1"
-                },
-                {
-                    "partyName": party_partyTel_1,
-                    "partyType": "1",
-                    "countryCode": "",
-                    "areaCode": "",
-                    "partyTel": party_partyTel_1,
-                    "partyEmail": "",
-                    "isCallOut": "1"
-                }
-            ],
-            "contactList": [
-                {
-                    "contactName": contactName,
-                    "contactTelephone": contactTelephone,
-                    "contactEmail": contactEmail
-                }
-            ],
-            "hangUpSetting": hangUpSetting,
-            "hangUpDuration": hangUpDuration,
-            "callOutType": callOutType_custom,
-            "isRecord": isRecord,
-            "joinType": 0,
-            "meetingExplain": "倾听,类型:" + str(callOutType_custom),
-            "subscribeHostStatus": subscribeHostStatus,
-            "subscribeGuestStatus": subscribeGuestStatus
-        })
-        headers = conf['parameter']['headers']
+pcs = PCS_create()
+list_phone = ['02363984740-0101', '02363984740-0102', '02363984740-0103', '02363984740-0104', '02363984740-0105',
+              '02363984740-0106', '02363984740-0107', '02363984740-0108']
 
-        response = requests.request("POST", url, headers=headers, data=payload_client_two)
-        logging.info(payload_client_two)
-        logging.info(response.text)
-        res = json.loads(response.text)
-        now_meetingId = res['data']['meetingId']
-        self.save_meetingID(now_meetingId)
-        now_hostPasscode = res['data']['hostPasscode']
-        self.save_hostPasscode(
-            str(now_hostPasscode) + "场景:" + str(callOutType_custom) + "人数:5" + "第" + str(times) + "场")
-        if callOutType_custom == 4:
-            custom_4_hostPasscode = res['data']['hostPasscode']
-            self.save_4_hostPasscode(custom_4_hostPasscode)
-        return res
+# print(pcs.create_Meeting(param=pcs.create_data,party_partyTel=list_phone,counsellor_num=1,user_num=1))
 
+print(pcs.single_meeting_partyTel(list_phone, 1, 9, 6))

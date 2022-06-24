@@ -9,23 +9,24 @@
 from itertools import count
 
 from tools import read_file
+from PCS_getToken import Get_Token
 
 
-ya = read_file.GetData()
+# ya = read_file.GetData()
 
-conf_path = f".\config\meeting.yaml"
-
-
-conf = ya.get_data_list(conf_path)
+# conf_path = f".\config\meeting.yaml"
+#
+#
+# conf = ya.get_data_list(conf_path)
 
 # data = conf['data']
 # data['token'] = '123123'
 
-keys = conf.keys()
-print(type(conf))
-print(type(keys))
-for key in keys:
-    if key[:4] == 'data':
-        print(key)
+# keys = conf.keys()
+# print(type(conf))
+# print(type(keys))
+# for key in keys:
+#     if key[:4] == 'data':
+#         print(key)
 
 

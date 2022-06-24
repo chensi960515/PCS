@@ -3,8 +3,8 @@ meeting:
   end_phone_test: 3600
 
   #phone 切片
-  start_phone: 2000
-  end_phone: 3000
+  start_phone: 1
+  end_phone: -1
 
 #  start_phone: 1000
 #  end_phone: 2000
@@ -32,15 +32,15 @@ meeting:
 Mode:
     #共创建多少场畅听会议
     meeting_num_test: 9
-    meeting_num: 120
+    meeting_num: 15
     meeting_num_650: 650
 
 data:
   token:
-  userAccount:
+  userAccount: crm1@pcs.com
   meetingTitle:
-  startTime:
-  duration:
+  startTime: 1656049800000
+  duration: 120
   contactList: [
                 {
                     "contactName": '',
@@ -48,13 +48,14 @@ data:
                     "contactEmail": ''
                 }
             ]
-  hangUpSetting:
+  callOutType: 6
+  hangUpSetting: 0
   hangUpDuration:
-  isRecord:
-  joinType:
-  meetingExplain:
-  subscribeHostStatus:
-  subscribeGuestStatus:
+  isRecord: 1
+  joinType: 0
+  meetingExplain: "会议说明"
+  subscribeHostStatus: 0
+  subscribeGuestStatus: 0
 
 data2:
   token:

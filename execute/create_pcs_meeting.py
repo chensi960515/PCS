@@ -47,7 +47,7 @@ class Create_Pcs_Meeting:
         pcs_create = PCS_createmeeing.PCS_create()
 
         for i in range(meeting_sum + 1):
-            pcs_create.create_Meeting_two(token=token, times=i+141, start_time=start_time,
+            pcs_create.create_Meeting_two(token=token, times=i, start_time=start_time,
                                             party_partyTel_0=phone1[i],
                                             party_partyTel_1=phone1[i + 1],
                                             party_partyTel_2=phone1[i + 2],
