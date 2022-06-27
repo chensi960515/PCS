@@ -20,7 +20,6 @@ class GetData:
         data = yaml.safe_load(cfg)
         return data
 
-
     def get_phone_excel(self, excelFile, list_index):
         data = xlrd.open_workbook(excelFile)
         table = data.sheet_by_index(list_index)
@@ -31,8 +30,8 @@ class GetData:
 
         for rowNum in range(row_count):
             for colNum in range(col_count):
-                dataFile.append(table.row_values(rowNum,colNum))
-        for i in dataFile :
+                dataFile.append(table.row_values(rowNum, colNum))
+        for i in dataFile:
             if len(i[0]) > 0 and i not in res:
                 res.append(i[0])
 

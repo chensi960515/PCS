@@ -10,6 +10,7 @@ import time
 import logging
 from tools import read_file
 from pcs_package import PCS_getToken
+from tools import sava_info
 
 logging.getLogger().setLevel(logging.INFO)
 
@@ -28,29 +29,7 @@ class PCS_create:
     # 电话列表
     party_partyTel = []
 
-    def save_meetingID(self, x):
-        with open('../eph_data/meetingID.txt', 'a', encoding='utf-8') as f:
-            f.write(str(x))
-            f.write("\n")
-        with open('../eph_data/meetingID.txt', 'r', encoding='utf-8') as f:
-            x = f.read()
-
-    def save_hostPasscode(self, z):
-        with open('../eph_data/hostPasscode.txt', 'a', encoding='utf-8') as f:
-            f.write(str(z))
-            f.write("\n")
-        with open('../eph_data/hostPasscode.txt', 'r', encoding='utf-8') as f:
-            z = f.read()
-
-    def save_4_hostPasscode(self, k):
-        with open('../eph_data/custom_4_hostPasscode.txt', 'a', encoding='utf-8') as f:
-            f.write(str(k))
-            f.write("\n")
-        with open('../eph_data/custom_4_hostPasscode.txt', 'r', encoding='utf-8') as f:
-            k = f.read()
-
     # 参数提取出来,便于控制
-
     create_data = meeting['data']
 
     def setUserInfo(self, party_partyTel: list, counsellor: int):
@@ -97,7 +76,6 @@ class PCS_create:
             partyTel = []
             del_num = len(party_partyTel) % (counsellor_num + user_num)
             creat_num = int(len(party_partyTel) / (counsellor_num + user_num))
-            logging.info(del_num)
             # 足够  不管是否有余,直接切
             if creat_num >= meeting_num:
                 logging.info("==========接入号足够,正常分配==========")
@@ -135,36 +113,35 @@ class PCS_create:
         """
 
         try:
-            self.single_meeting_partyTel(party_partyTel=party_partyTel, counsellor_num=counsellor_num,
-                                         user_num=user_num, meeting_num=meeting_num)
+            party_partyTel = self.single_meeting_partyTel(party_partyTel=party_partyTel, counsellor_num=counsellor_num,
+                                                          user_num=user_num, meeting_num=meeting_num)
             data = param
+            data['token'] = token
+            data['meetingTitle'] = "No." + "场景" + str(data['callOutType']) + "人数" + str(
+                len(party_partyTel))
+            url = conf['parameter']['url_create_Meeting']
+            headers = conf['parameter']['headers']
+
             if type(counsellor_num) is int and counsellor_num > 0:
-                data['token'] = token
-                data['partyList'] = self.setUserInfo(party_partyTel, counsellor_num)
-                data['meetingTitle'] = "No." + "场景" + str(data['callOutType']) + "人数" + str(
-                    len(party_partyTel) + 1)
+                for i in range(len(party_partyTel)):
+                    data['partyList'] = self.setUserInfo(party_partyTel[i], counsellor_num)
+                    response = requests.request("POST", url, headers=headers, data=json.dumps(data))
+                    res = json.loads(response.text)
+                    if res['msg'] == 'success' and res['code'] == 0:
+                        logging.info(res)
+                        meetingId = res['data']['meetingId']
+                        hostPasscode = res['data']['hostPasscode']
+                        sava_info.save_Meeting_Info('../eph_data/meetingID.txt', meetingId)
+                        sava_info.save_Meeting_Info('../eph_data/hostPasscode.txt', hostPasscode)
 
-                url = conf['parameter']['url_create_Meeting']
-                headers = conf['parameter']['headers']
-                logging.info(party_partyTel)
-
-                # response = requests.request("POST", url, headers=headers, data=json.dumps(data))
-                # return response.text
+                    else:
+                        logging.info(json.dumps(data))
+                        logging.info(res)
 
             elif counsellor_num == 0:
                 logging.error("==========会议必须存在一个顾问===========")
             else:
                 logging.error("==========counsellor_num参数错误===========")
 
-
         except Exception as e:
             logging.error(e)
-
-
-pcs = PCS_create()
-list_phone = ['02363984740-0101', '02363984740-0102', '02363984740-0103', '02363984740-0104', '02363984740-0105',
-              '02363984740-0106', '02363984740-0107', '02363984740-0108']
-
-# print(pcs.create_Meeting(param=pcs.create_data,party_partyTel=list_phone,counsellor_num=1,user_num=1))
-
-print(pcs.single_meeting_partyTel(list_phone, 1, 9, 6))

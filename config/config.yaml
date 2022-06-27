@@ -77,19 +77,17 @@ parameter:
   #倾听电话会议主动挂断外呼客户
   url_endcallParty: "https://pcstest.263.net/meetingRoom/control-endCallParty"
 
+
   #客户UID
-  #customerId: "U10000247885"
-  customerId: "U10000248515"
+  customerId: "U10000247885"
 
   #客户密码
-  #secret: "123456"
   secret: "123456"
 
   #创建会议的账户
-  #userAccount: "xu.chen1@net263.com"
-  userAccount: "crm1@pcs.com"
+  userAccount: "xu.chen1@net263.com"
 
-  cookie: 'language=zh; languageCC=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654120312,1654722435; Qs_lvt_326460=1654120311%2C1654722434; Qs_pv_326460=2535230191188450300%2C4074267285746521600; i18next=zh; pus=a09342d9-77e6-424c-a0c7-621a303625e4; SESSION=NzAxZGU0MzAtMTY1NC00NTk0LWEzM2QtYTQwYTZhYmM1MTBj'
+  cookie: "language=zh; languageCC=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654120312,1654722435; Qs_lvt_326460=1654120311%2C1654722434; Qs_pv_326460=2535230191188450300%2C4074267285746521600; SESSION=YTQyM2M2MzEtYjA4My00MTdkLWIwOTEtNmJjZDZjZDcxNTQ1; i18next=zh; pus=bf25af17-2d37-426f-be36-92150a8db029"
   #=============================================👆test👆====================================================
 
 
@@ -102,84 +100,10 @@ parameter:
 
 
 
-  #倾听会议定义开启时间
-  start_time: 1656061500000
-  #start_time_650: 1654614647000
-
-
-
-  #创建倾听会议时长  单位min
-  duration: 120
-
   #紧急联系人
   contactList:
     contactName: 3
     contactTelephone: 2
     contactEmail: 1
 
-
-
-#    #创建倾听会议场次
-#    num : 10
-#
-#    #创建倾听会议步长
-#    step : 2
-
-#    #创建倾听,发送报告收件人邮箱
-#    sendEmails: ["cs960515@outlook.com","si.chen@net263.com"]
-
-
-##预约会议参数 模式一
-#Mode:
-#    #共创建多少场畅听会议
-#    num: 220
-#    #场景 1 创建的会议场次
-#    callOutType_1_num :
-#        #模式一: 接口场景为 1 ,开启录音,会中3人,会议场次
-#        scene_A: 100
-#        #模式一: 接口场景为 1 ,关闭录音,会中3人,会议场次
-#        scene_B: 20
-#    #场景4 创建的会议场次
-#    callOutType_4_num :
-#
-#        scene_A: 0
-#
-#        scene_B: 0
-#    #场景6 创建的会议场次
-#    callOutType_6_num :
-#        #模式二: 接口场景为 6 ,关闭录音,会中 5人,订阅顾问
-#        scene_A: 50
-#        scene_B: 0
-#    #场景7 创建的会议场次
-#    callOutType_7_num :
-#        #模式二: 接口场景为 7 ,关闭录音,会中 5人,订阅客户
-#        scene_A: 50
-#        scene_B:
-
-##预约会议参数 模式二
-#Mode:
-#    #共创建多少场畅听会议
-#    num: 130
-#    #场景 1 创建的会议场次
-#    callOutType_1_num :
-#        #模式一: 接口场景为 1 ,会中3人,会议场次
-#        scene_A: 39
-#        #模式一: 无此情况
-#        scene_B: 0
-#    #场景4 创建的会议场次
-#    callOutType_4_num :
-#        # 接口场景为4,会中3人,不录音
-#        scene_A: 50
-#
-#        scene_B: 0
-#    #场景6 创建的会议场次
-#    callOutType_6_num :
-#        #模式二: 接口场景为 6 ,关闭录音,会中 5人,订阅顾问
-#        scene_A: 20
-#        scene_B: 0
-#    #场景7 创建的会议场次
-#    callOutType_7_num :
-#        #模式二: 接口场景为 7 ,关闭录音,会中 5人,订阅客户
-#        scene_A: 20
-#        scene_B:
 

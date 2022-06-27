@@ -24,31 +24,17 @@ conf_path = f"../config/config.yaml"
 meet_path = f"../config/meeting.yaml"
 conf = ya.get_data_list(conf_path)
 
-#还需要优化下,让其他人调用吧
-
-
-
+pcs_token = PCS_getToken.Get_Token()
+token = pcs_token.get_Token()
 list_meetingId = []
+del_meetingId = []
 
-
-def get_Token():
-    url = conf['parameter']['url_token']
-
-    payload = json.dumps({
-        "customerId": conf['parameter']['customerId'],
-        "secret": conf['parameter']['secret']
-    })
-    headers = conf['parameter']['headers']
-
-    response = requests.request("GET", url, headers=headers, data=payload)
-    res = json.loads(response.text)
-    new_token = res['data']['token']
-    return new_token
 
 def get_meetingId():
     with open('../eph_data/meetingID.txt', 'r', encoding='utf-8') as f:
         for x in f:
             list_meetingId.append(x[0:4])
+
 
 def delete_Meeting(meetingId):
     url = conf['parameter']['url_cancelMeeting']
@@ -59,19 +45,17 @@ def delete_Meeting(meetingId):
         "meetingId": meetingId
     })
     headers = conf['parameter']['headers']
-
     response = requests.request("POST", url, headers=headers, data=payload)
+    logging.info(response.text)
+    res = json.loads(response.text)
+    if res['msg'] == 'success' and res['code'] == 0:
+        del_meetingId.append(meetingId)
+    else:
+        logging.error("删除会议没成功.")
 
-    print(response.text)
 
-token = get_Token()
 get_meetingId()
-
 for i in range(len(list_meetingId)):
     delete_Meeting(list_meetingId[i])
-    logging.info(list_meetingId[i])
 
-#清空操作
-def remove_meetingId():
-    with open('../eph_data/meetingID.txt', 'a+', encoding='utf-8') as f:
-        f.truncate(0)
+
