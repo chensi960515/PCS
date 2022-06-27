@@ -33,6 +33,12 @@ class PCS_create:
     create_data = meeting['data']
 
     def setUserInfo(self, party_partyTel: list, counsellor: int):
+        """
+        分配 每场会议顾问和客户的虚拟接入号
+        :param party_partyTel:  每场会议中,所用到的接入号
+        :param counsellor:  顾问数量
+        :return:
+        """
         partyList = []
         user_sum = len(party_partyTel) + 1
         counsellor_num = counsellor
@@ -104,6 +110,8 @@ class PCS_create:
 
     def create_Meeting(self, param: dict, party_partyTel: list, counsellor_num, user_num, meeting_num):
         """
+        组装 参数
+        请求
         :param meeting_num:
         :param param:
         :param party_partyTel:  需要使用的电话列表(只对每一场会议来说的)
