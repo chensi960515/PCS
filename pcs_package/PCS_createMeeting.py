@@ -125,8 +125,7 @@ class PCS_create:
                                                           user_num=user_num, meeting_num=meeting_num)
             data = param
             data['token'] = token
-            data['meetingTitle'] = "No." + "场景" + str(data['callOutType']) + "人数" + str(
-                len(party_partyTel))
+            data['meetingTitle'] = "共" + str(meeting_num) + "场-场景" + str(data['callOutType']) + "-人数" + str( counsellor_num + user_num)
             url = conf['parameter']['url_create_Meeting']
             headers = conf['parameter']['headers']
 

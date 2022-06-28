@@ -90,10 +90,9 @@ class Call:
                 if len(payload["parties"]) != 0:
                     if j == 1:
                         time.sleep(1)
-                    else:
-                        log.info(payload)
-                        res = requests.request("POST", url, headers=headers, data=payload, files=files)
-                        log.info(res.text)
+                    log.info(payload)
+                    res = requests.request("POST", url, headers=headers, data=payload, files=files)
+                    log.info(res.text)
 
     def callParty(self, passcode_path="../eph_data/hostPasscode.txt", callOutType_custom=4,
                   callOutType_custom_index=12,

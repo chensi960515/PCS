@@ -1,45 +1,14 @@
 meeting:
-  start_phone_test: 3500
-  end_phone_test: 3600
-
   #phone 切片
   start_phone: 1
   end_phone: -1
 
-#  start_phone: 1000
-#  end_phone: 2000
-#
-#  start_phone: 2000
-#  end_phone: 3000
-#
-
-
-  start_phone_2: 3500
-  end_phone_2: 3600
-
-  start_phone_3: 1700
-  end_phone_3: 2300
-
-  start_phone_4: 2300
-  end_phone_4: 2900
-
-  start_phone_5: 2900
-  end_phone_5: 3500
-
-  start_phone_6: 3500
-  end_phone_6: -1
-
-Mode:
-    #共创建多少场畅听会议
-    meeting_num_test: 9
-    meeting_num: 15
-    meeting_num_650: 650
 
 data:
   token:
-  userAccount: xu.chen1@net263.com
+  userAccount: kangyao.xue@net263.com
   meetingTitle:
-  startTime: 1656311715000
+  startTime: 1656438600000
   duration: 120
   contactList: [
                 {

@@ -33,7 +33,7 @@ del_meetingId = []
 def get_meetingId():
     with open('../eph_data/meetingID.txt', 'r', encoding='utf-8') as f:
         for x in f:
-            list_meetingId.append(x[0:4])
+            list_meetingId.append(x[0:6])
 
 
 def delete_Meeting(meetingId):
@@ -52,6 +52,7 @@ def delete_Meeting(meetingId):
         del_meetingId.append(meetingId)
     else:
         logging.error("删除会议没成功.")
+        logging.info(payload)
 
 
 get_meetingId()

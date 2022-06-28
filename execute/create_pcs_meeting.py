@@ -25,15 +25,19 @@ meet = ya.get_data_list(meet_path)
 excel_path = conf['parameter']['excelFile']
 
 phone = ya.get_phone_excel(excelFile=excel_path, list_index=0)
+
 params = meet['data']
 
 pcs_create = PCS_createMeeting.PCS_create()
 
 
-# 测试创建会议
-pcs_create.create_Meeting(param=params, party_partyTel=phone, counsellor_num=1, user_num=2, meeting_num=5)
+# 创建会议
 
 
-# 创建 100场xxx的会议
+# pcs_create.create_Meeting(param=params, party_partyTel=phone[:500], counsellor_num=1, user_num=4, meeting_num=60)
+#
+# pcs_create.create_Meeting(param=params, party_partyTel=phone[500: 1000], counsellor_num=1, user_num=4, meeting_num=80)
+#
+pcs_create.create_Meeting(param=params, party_partyTel=phone[1000:2000], counsellor_num=1, user_num=4, meeting_num=120)
 
-# 创建 20场xxx的会议
+
