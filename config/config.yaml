@@ -9,8 +9,11 @@ parameter:
 
  #     生产电话存放地址
   excelFile: "D:\\263\\20220608压测电话.xlsx"
-      #获取token链接
-  url_token: "https://apipcs.263.net/api/getToken"
+      #scp 获取token链接
+  url_scp_token: "https://apipcs.263.net/api/getToken"
+
+      #sec 获取token
+  url_sec_token: "https://apipcs.263.net/api/getToken"
 
       #创建倾听电话会议链接
   url_create_Meeting: "https://apipcs.263.net/api/createMeeting"

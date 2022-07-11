@@ -23,9 +23,10 @@ ya = read_file.GetData()
 conf_path = f"../config/config.yaml"
 meet_path = f"../config/meeting.yaml"
 conf = ya.get_data_list(conf_path)
+url_scp_token = conf['parameter']['url_scp_token']
 
 pcs_token = PCS_getToken.Get_Token()
-token = pcs_token.get_Token()
+token = pcs_token.get_Token(url_scp_token)
 list_meetingId = []
 del_meetingId = []
 

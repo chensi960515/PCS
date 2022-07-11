@@ -6,27 +6,21 @@
 @file: test_read_file.py
 @time: 2022/5/30  21:39
 """
-from itertools import count
 
-from tools import read_file
-from PCS_getToken import Get_Token
+from selenium import webdriver
+from selenium.webdriver import Chrome, ChromeOptions
 
+driver = webdriver.Chrome()
 
-# ya = read_file.GetData()
+driver.get("http://selenium.dev")
 
-# conf_path = f".\config\meeting.yaml"
+driver.quit()
+
+# opt = ChromeOptions()  # 创建Chrome参数对象
+# opt.headless = True  # 把Chrome设置成可视化无界面模式，windows/Linux 皆可
+# driver = Chrome(options=opt)  # 创建Chrome无界面对象
 #
-#
-# conf = ya.get_data_list(conf_path)
-
-# data = conf['data']
-# data['token'] = '123123'
-
-# keys = conf.keys()
-# print(type(conf))
-# print(type(keys))
-# for key in keys:
-#     if key[:4] == 'data':
-#         print(key)
-
-
+# driver.get('http://www.baidu.com')
+# print(driver.current_window_handle)
+# print(driver.page_source)
+# driver.close()
