@@ -52,8 +52,8 @@ parameter:
   #测试环境
 
   #虚拟电话存放地址
-  excelFile: "D:\\263\\测试虚拟账号.xlsx"
-  #excelFile: "F:\\263\\测试虚拟电话.xlsx"
+  #excelFile: "D:\\263\\测试虚拟账号.xlsx"
+  excelFile: "F:\\263\\测试虚拟电话.xlsx"
 
   #获取token链接
   url_scp_token: "https://apipcstest.263.net/api/getToken"
@@ -81,6 +81,9 @@ parameter:
 
   url_sec_createMeeting: "https://meetapitest.263.net/meet/sec/api/createMeeting"
 
+  url_sec_cancelMeeting: "https://meetapitest.263.net/meet/sec/api/cancelMeeting"
+
+  url_sec_startMeeting: "https://meetingroomtest.263.net/MeetingRoom/control-startMeeting"
 
   #客户UID
   customerId: "U10000247885"

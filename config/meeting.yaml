@@ -37,7 +37,7 @@ sec_meeting:
   userAccount:
   meetingCode:
   meetingTitle:
-  startTime: 1657706400000
+  startTime: 1657729418000
   durationMinute: 120
   smsNoticeStatus: 1
   remindMinute: 15

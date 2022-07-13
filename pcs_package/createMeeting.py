@@ -39,7 +39,8 @@ class create:
     # 参数提取出来,便于控制
     meetingID_path = "../eph_data/meetingID.txt"
     hostPasscode_path = "../eph_data/hostPasscode.txt"
-    meetingCode_path = "../eph_data/meetingCode.txt"
+    sec_path = "../eph_data/sec.txt"
+
 
     def generate_random_str(self, randomlength):
         '''
@@ -87,7 +88,7 @@ class create:
                         "isCallOut": "1"
                     })
 
-            return partyList
+            return partyList, party_partyTel
         elif request_type.lower() == "sec":
             partyList.append({
                 "partyName": "主持人-" + str(party_partyTel[0]),
@@ -103,7 +104,7 @@ class create:
                     "partyEmail": ""
 
                 })
-            return partyList
+            return partyList, party_partyTel
         else:
             logging.logger.error("参数异常")
 
@@ -207,9 +208,9 @@ class create:
                 if type(counsellor_num) is int and counsellor_num == 1:
                     for i in range(len(party_partyTel)):
                         data['meetingCode'] = self.generate_random_str(12)
-                        data['partyList'] = self.setUserInfo(request_type,party_partyTel[i], counsellor_num)
+                        data['partyList'], phoneNumbers = self.setUserInfo(request_type,party_partyTel[i], counsellor_num)
                         res = self.create_Request('POST',url,headers,data)
-                        sava_info.save_Meeting_Info(self.meetingCode_path, data['meetingCode'])
+                        sava_info.save_Meeting_Info(self.sec_path, str(data['meetingCode']) + "," + str(res['data']['hostPassCode'] + "," + str(phoneNumbers)))
                         logging.logger.info(res)
                 elif counsellor_num == 0:
                     logging.logger.error("==========会议必须存在一个主持人===========")

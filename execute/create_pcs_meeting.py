@@ -44,4 +44,4 @@ create = createMeeting.create()
 #create.create_Meeting(request_type='scp', param=params, party_partyTel=phone[20:40], counsellor_num=1, user_num=4, meeting_num=3)
 
 
-create.create_Meeting(request_type='sec', param=sec_params, party_partyTel=phone[:20], counsellor_num=1, user_num=4, meeting_num=1)
+create.create_Meeting(request_type='sec', param=sec_params, party_partyTel=phone[10:20], counsellor_num=1, user_num=4, meeting_num=1)

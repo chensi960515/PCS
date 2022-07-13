@@ -26,4 +26,7 @@ import time
 # print(driver.page_source)
 # driver.close()
 
-print(int(round(time.time() * 1000)))
+str = "0wZp5VdhvT4I,517298294,['02363984740-0048', '02363984740-0049', '02363984740-0050', '02363984740-0051', '02363984740-0101']"
+print(str[0:12])
+print(str[13:22])
+print(str[23:-1])
