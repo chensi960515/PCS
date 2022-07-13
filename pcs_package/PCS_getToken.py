@@ -29,3 +29,4 @@ class Get_Token:
         res = json.loads(response.text)
         new_token = res['data']['token']
         return new_token
+

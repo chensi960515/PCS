@@ -8,8 +8,7 @@
 """
 
 import logging
-from pcs_package import PCS_createMeeting
-from pcs_package import PCS_getToken
+from pcs_package import createMeeting
 from tools import read_file
 
 # 设置loggin.info 可控制台输出
@@ -28,8 +27,10 @@ phone = ya.get_phone_excel(excelFile=excel_path, list_index=0)
 
 params = meet['data']
 
-pcs_create = PCS_createMeeting.PCS_create()
+sec_params = meet['sec_meeting']
+# pcs_create = PCS_createMeeting.PCS_create()
 
+create = createMeeting.create()
 
 # 创建会议
 
@@ -38,6 +39,9 @@ pcs_create = PCS_createMeeting.PCS_create()
 #
 # pcs_create.create_Meeting(param=params, party_partyTel=phone[500: 1000], counsellor_num=1, user_num=4, meeting_num=80)
 #
-pcs_create.create_Meeting(param=params, party_partyTel=phone[1000:2000], counsellor_num=1, user_num=4, meeting_num=120)
+# pcs_create.create_Meeting(param=params, party_partyTel=phone[1000:2000], counsellor_num=1, user_num=4, meeting_num=120)
+
+#create.create_Meeting(request_type='scp', param=params, party_partyTel=phone[20:40], counsellor_num=1, user_num=4, meeting_num=3)
 
 
+create.create_Meeting(request_type='sec', param=sec_params, party_partyTel=phone[:20], counsellor_num=1, user_num=4, meeting_num=1)

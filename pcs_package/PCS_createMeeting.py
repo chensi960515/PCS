@@ -141,9 +141,7 @@ class PCS_create:
                         sava_info.save_Meeting_Info('../eph_data/meetingID.txt', meetingId)
                         sava_info.save_Meeting_Info('../eph_data/hostPasscode.txt', hostPasscode)
 
-                    else:
-                        logging.info(json.dumps(data))
-                        logging.info(res)
+
 
             elif counsellor_num == 0:
                 logging.error("==========会议必须存在一个顾问===========")

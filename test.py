@@ -9,12 +9,13 @@
 
 from selenium import webdriver
 from selenium.webdriver import Chrome, ChromeOptions
+import time
 
-driver = webdriver.Chrome()
-
-driver.get("http://selenium.dev")
-
-driver.quit()
+# driver = webdriver.Chrome()
+#
+# driver.get("http://selenium.dev")
+#
+# driver.quit()
 
 # opt = ChromeOptions()  # 创建Chrome参数对象
 # opt.headless = True  # 把Chrome设置成可视化无界面模式，windows/Linux 皆可
@@ -24,3 +25,5 @@ driver.quit()
 # print(driver.current_window_handle)
 # print(driver.page_source)
 # driver.close()
+
+print(int(round(time.time() * 1000)))

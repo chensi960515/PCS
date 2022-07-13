@@ -19,7 +19,7 @@ if not os.path.exists(log_dir):
     os.mkdir(log_dir)
 
 
-class DemoLogger():
+class DemoLogger:
     def __init__(self):
         # 创建一个日志器
         self.logger = logging.getLogger("logger")
@@ -36,7 +36,7 @@ class DemoLogger():
         fh = logging.FileHandler(log_file, encoding="UTF-8")
 
         # 创建格式器,并将sh，fh设置对应的格式
-        formator = logging.Formatter(fmt="%(asctime)s %(filename)s %(levelname)s %(message)s",
+        formator = logging.Formatter(fmt="%(asctime)s %(filename)s %(levelname)s %(lineno)d %(message)s",
                                      datefmt="%Y/%m/%d %X")
         sh.setFormatter(formator)
         fh.setFormatter(formator)

@@ -26,6 +26,3 @@ class get_passcode:
 
         return list_hostPasscode
 
-# p = get_passcode()
-# p.get_call_phone_passcode(passcode_path="../eph_data/hostPasscode.txt", callOutType_custom=4,
-#                           callOutType_custom_index=12, str_start=0, str_end=9)
