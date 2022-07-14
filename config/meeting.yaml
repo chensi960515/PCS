@@ -9,7 +9,7 @@ data:
   token:
   userAccount: kangyao.xue@net263.com
   meetingTitle:
-  startTime: 1657702186000
+  startTime: 1657827300000
   duration: 120
   contactList: [
                 {
@@ -39,28 +39,31 @@ sec_meeting_cx1:
   token:
   userAccount: cx1@net263.com
   meetingCode:
-  meetingTitle:
-  startTime: 1657791026000
+  meetingTitle: cx1创建
+  startTime: 1657830900000
   durationMinute: 120
   smsNoticeStatus: 1
   remindMinute: 15
+  recordingType: 0
 
 sec_meeting_cx2:
   token:
   userAccount: cx2@net263.com
   meetingCode:
-  meetingTitle:
-  startTime: 1657791026000
+  meetingTitle: 第二批,cx2创建
+  startTime: 1657823700000
   durationMinute: 120
   smsNoticeStatus: 1
   remindMinute: 15
+  recordingType: 0
 
 sec_meeting_cx3:
   token:
   userAccount: cx3@net263.com
   meetingCode:
-  meetingTitle:
-  startTime: 1657791026000
+  meetingTitle: 第二批,cx3创建
+  startTime: 1657823700000
   durationMinute: 120
   smsNoticeStatus: 1
   remindMinute: 15
+  recordingType: 0

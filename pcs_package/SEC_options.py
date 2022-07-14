@@ -109,7 +109,7 @@ def startMeeting():
                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
                            "Accept": "*/*", "Accept-Encoding": "gzip, deflate, br", "Connection": "keep-alive"}
 
-                response = requests.request("POST", url=sec_url, headers=headers,verify=False ,params=params ,data=data)
+                response = requests.request("POST", url=sec_url, headers=headers ,params=params ,data=data)
                 logging.logger.info(response)
 
 
@@ -120,17 +120,17 @@ def closeMeeting():
     """
     hostPasscodes = get_sec_parameter('../eph_data/sec.txt', 13, 22)
     url = sec_closeMeeting_url
-    headers = {'Content-Type': 'application/json', "Cookie": sec_cookie}
+    headers = {"cookie" : sec_cookie}
     for hostPasscode in hostPasscodes:
-        payload = json.dumps({
+        payload = {
             "hostPasscode": hostPasscode
-        })
+        }
 
-        response = requests.request("POST", url, headers=headers, data=payload)
+        response = requests.request("POST", url, headers=headers ,params=payload)
         logging.logger.info(response.text)
 
 
 if __name__ == '__main__':
-    #    cancelMeeting()
-    startMeeting()
-#    closeMeeting()
+#     cancelMeeting()
+#    startMeeting()
+    closeMeeting()

@@ -18,15 +18,22 @@ class Get_Token:
         pass
 
     headers = conf['parameter']['headers']
-    payload = json.dumps({
-        "customerId": conf['parameter']['customerId'],
-        "secret": conf['parameter']['secret']
-    })
 
     def get_Token(self, url_token):
         url = url_token
-        response = requests.request("GET", url, headers=self.headers, data=self.payload)
+
+        if 'apipcs' in url:
+            payload = json.dumps({
+                "customerId": conf['parameter']['customerId_pcs'],
+                "secret": conf['parameter']['secret_pcs']
+            })
+        elif 'meetapi' in url:
+            payload = json.dumps({
+                "customerId": conf['parameter']['customerId_sec'],
+                "secret": conf['parameter']['secret_sec']
+            })
+
+        response = requests.request("GET", url, headers=self.headers, data=payload)
         res = json.loads(response.text)
         new_token = res['data']['token']
         return new_token
-

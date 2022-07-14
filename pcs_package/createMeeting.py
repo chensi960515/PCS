@@ -63,9 +63,9 @@ class create:
         counsellor_num = counsellor
         user_num = user_sum - counsellor_num
 
-        if request_type.lower() == "scp":
+        if request_type.lower() == "pcs":
             for i in range(user_sum):
-                if i < counsellor_num:
+                if i+1 <= counsellor_num:
                     partyList.append({
                         "partyName": party_partyTel[i],
                         "partyType": "0",
@@ -75,7 +75,7 @@ class create:
                         "partyEmail": "",
                         "isCallOut": "1"
                     })
-                elif counsellor_num <= i < user_num:
+                elif counsellor_num < i+1 <= user_sum:
                     partyList.append({
                         "partyName": party_partyTel[i],
                         "partyType": "1",
@@ -104,7 +104,7 @@ class create:
                 })
             return partyList, party_partyTel
         else:
-            logging.logger.error("参数异常")
+            logging.logger.error("参数异常---参看request_type 是否正确")
 
     def single_meeting_partyTel(self, party_partyTel: list, counsellor_num: int, user_num: int, meeting_num: int):
         """
@@ -156,8 +156,8 @@ class create:
             logging.logger.info(json.dumps(data))
             logging.logger.info(res)
 
-    def create_Meeting(self, request_type: str, param: dict, party_partyTel: list, counsellor_num, user_num,
-                       meeting_num):
+    def create_Meeting(self, request_type: str, param: dict, party_partyTel: list, counsellor_num: int, user_num: int,
+                       meeting_num: int):
         """
         组装 参数
         请求
@@ -175,7 +175,7 @@ class create:
                                                           user_num=user_num, meeting_num=meeting_num)
             data = param
 
-            if request_type.lower() == "scp":
+            if request_type.lower() == "pcs":
                 data['token'] = scp_token
                 data['meetingTitle'] = "共" + str(meeting_num) + "场-场景" + str(data['callOutType']) + "-人数" + str(
                     counsellor_num + user_num)
@@ -184,10 +184,11 @@ class create:
 
                 if type(counsellor_num) is int and counsellor_num > 0:
                     for i in range(len(party_partyTel)):
-                        data['partyList'] = self.setUserInfo(request_type, party_partyTel[i], counsellor_num)
+                        data['partyList'], phoneNumbers  = self.setUserInfo(request_type, party_partyTel[i], counsellor_num)
                         if len(data['userAccount']) == 0:
                             data['userAccount'] = conf['parameter']['userAccount']
                         res = self.create_Request('POST', url, headers, data)
+                        logging.logger.info(res)
                         meetingId = res['data']['meetingId']
                         hostPasscode = res['data']['hostPasscode']
                         sava_info.save_Meeting_Info(self.meetingID_path, meetingId)
@@ -202,7 +203,7 @@ class create:
                 data['token'] = sec_token
                 if len(data['userAccount']) == 0:
                     data['userAccount'] = conf['parameter']['userAccount']
-                data['meetingTitle'] = "畅听会议,人数" + str(counsellor_num + user_num)
+                data['meetingTitle'] = data['meetingTitle'] + str(counsellor_num + user_num)
                 url = conf['parameter']['url_sec_createMeeting']
                 headers = conf['parameter']['headers']
                 if type(counsellor_num) is int and counsellor_num == 1:
@@ -220,6 +221,6 @@ class create:
                     logging.logger.error("==========参数异常===========")
 
             else:
-                logging.logger.error("出现异常,请查看")
+                logging.logger.error("出现异常,请查看---request_type 设置参数".lower(request_type))
         except Exception as e:
             logging.logger.info(e)

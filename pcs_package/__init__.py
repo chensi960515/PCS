@@ -6,7 +6,6 @@
 
 
 from tools import read_file
-from pcs_package import PCS_getToken
 
 
 ya = read_file.GetData()

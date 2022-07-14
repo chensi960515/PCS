@@ -28,22 +28,36 @@ phone = ya.get_phone_excel(excelFile=excel_path, list_index=0)
 params = meet['data']
 
 sec_params_cx1 = meet['sec_meeting_cx1']
-sec_params_cx2 = meet['sec_meeting_cx1']
-sec_params_cx3 = meet['sec_meeting_cx1']
+sec_params_cx2 = meet['sec_meeting_cx2']
+sec_params_cx3 = meet['sec_meeting_cx3']
 
 create = createMeeting.create()
 
 # 创建会议
-
-
-
 # SEC 畅听会议  cx1 账号 第一个60场
-create.create_Meeting(request_type='sec', param=sec_params_cx1, party_partyTel=phone[0:350], counsellor_num=1, user_num=4, meeting_num=60)
+create.create_Meeting(request_type='sec', param=sec_params_cx1, party_partyTel=phone[0:350], counsellor_num=1, user_num=4, meeting_num=1)
 
-create.create_Meeting(request_type='sec', param=sec_params_cx1, party_partyTel=phone[350:700], counsellor_num=1, user_num=4, meeting_num=60)
+# SEC 畅听会议  cx2 账号 第一个60场   ===================要跟第三个60场同时开启=======================
+#create.create_Meeting(request_type='sec', param=sec_params_cx2, party_partyTel=phone[350:700], counsellor_num=1, user_num=4, meeting_num=60)
 
-create.create_Meeting(request_type='sec', param=sec_params_cx1, party_partyTel=phone[700:1050], counsellor_num=1, user_num=4, meeting_num=60)
+# SEC 畅听会议  cx3 账号 第三个60场   ===================要跟第二个60场同时开启=======================
+#create.create_Meeting(request_type='sec', param=sec_params_cx3, party_partyTel=phone[700:1050], counsellor_num=1, user_num=4, meeting_num=60)
 
-# PCS 倾听会议  kaoyao 账号. 唯一120场   时间与 哪个保持一致?
+# PCS 倾听会议  kaoyao 账号. 唯一120场   时间与 后120场 sce会议时间一致
+#create.create_Meeting(request_type='pcs', param=params, party_partyTel=phone[1500:1600], counsellor_num=1, user_num=1, meeting_num=1)
 
-create.create_Meeting(request_type='pcs', param=params, party_partyTel=phone[1100:2000], counsellor_num=1, user_num=4, meeting_num=60)
+
+# ============================================================TEST=====================================================================
+"""
+SEC 畅听会议  cx1 账号 第一个60场
+create.create_Meeting(request_type='sec', param=sec_params_cx1, party_partyTel=phone[0:350], counsellor_num=1, user_num=4, meeting_num=1)
+
+create.create_Meeting(request_type='sec', param=sec_params_cx2, party_partyTel=phone[350:700], counsellor_num=1, user_num=4, meeting_num=1)
+
+create.create_Meeting(request_type='sec', param=sec_params_cx3, party_partyTel=phone[700:1050], counsellor_num=1, user_num=4, meeting_num=1)
+
+PCS 倾听会议  kaoyao 账号. 唯一120场   时间与 哪个保持一致?
+
+create.create_Meeting(request_type='pcs', param=params, party_partyTel=phone[1100:2000], counsellor_num=1, user_num=4, meeting_num=2)
+"""
+# ============================================================TEST=====================================================================
