@@ -41,7 +41,6 @@ class create:
     hostPasscode_path = "../eph_data/hostPasscode.txt"
     sec_path = "../eph_data/sec.txt"
 
-
     def generate_random_str(self, randomlength):
         '''
         string.digits = 0123456789
@@ -50,7 +49,6 @@ class create:
         str_list = random.sample(string.digits + string.ascii_letters, randomlength)
         random_str = ''.join(str_list)
         return random_str
-
 
     def setUserInfo(self, request_type: str, party_partyTel: list, counsellor: int):
         """
@@ -186,9 +184,10 @@ class create:
 
                 if type(counsellor_num) is int and counsellor_num > 0:
                     for i in range(len(party_partyTel)):
-                        data['partyList'] = self.setUserInfo(request_type,party_partyTel[i], counsellor_num)
-                        data['userAccount'] = conf['parameter']['userAccount']
-                        res = self.create_Request('POST',url,headers,data)
+                        data['partyList'] = self.setUserInfo(request_type, party_partyTel[i], counsellor_num)
+                        if len(data['userAccount']) == 0:
+                            data['userAccount'] = conf['parameter']['userAccount']
+                        res = self.create_Request('POST', url, headers, data)
                         meetingId = res['data']['meetingId']
                         hostPasscode = res['data']['hostPasscode']
                         sava_info.save_Meeting_Info(self.meetingID_path, meetingId)
@@ -201,16 +200,19 @@ class create:
 
             elif request_type.lower() == "sec":
                 data['token'] = sec_token
-                data['userAccount'] = conf['parameter']['userAccount']
+                if len(data['userAccount']) == 0:
+                    data['userAccount'] = conf['parameter']['userAccount']
                 data['meetingTitle'] = "畅听会议,人数" + str(counsellor_num + user_num)
                 url = conf['parameter']['url_sec_createMeeting']
                 headers = conf['parameter']['headers']
                 if type(counsellor_num) is int and counsellor_num == 1:
                     for i in range(len(party_partyTel)):
                         data['meetingCode'] = self.generate_random_str(12)
-                        data['partyList'], phoneNumbers = self.setUserInfo(request_type,party_partyTel[i], counsellor_num)
-                        res = self.create_Request('POST',url,headers,data)
-                        sava_info.save_Meeting_Info(self.sec_path, str(data['meetingCode']) + "," + str(res['data']['hostPassCode'] + "," + str(phoneNumbers)))
+                        data['partyList'], phoneNumbers = self.setUserInfo(request_type, party_partyTel[i],
+                                                                           counsellor_num)
+                        res = self.create_Request('POST', url, headers, data)
+                        sava_info.save_Meeting_Info(self.sec_path, str(data['meetingCode']) + "," + str(
+                            res['data']['hostPassCode'] + "," + str(phoneNumbers)))
                         logging.logger.info(res)
                 elif counsellor_num == 0:
                     logging.logger.error("==========会议必须存在一个主持人===========")

@@ -7,43 +7,64 @@ parameter:
   #=============================================👇dep👇====================================================
   #生产环境
 
- #     生产电话存放地址
-#  excelFile: "D:\\263\\20220608压测电话.xlsx"
-#      #scp 获取token链接
-#  url_scp_token: "https://apipcs.263.net/api/getToken"
-#
-#      #sec 获取token
-#  url_sec_token: "https://meetapitest.263.net/meet/sec/api/getToken"
-#
-#      #创建倾听电话会议链接
-#  url_create_Meeting: "https://apipcs.263.net/api/createMeeting"
-#
-#      #获取倾听电话会议详细信息链接
-#  url_query_Meeting: "https://pcs.263.net/meetingRoom/queryMeetingInfo/"
-#
-#      #取消会议(只针对未开启或已过期得倾听会议)
-#  url_cancelMeeting: "https://apipcs.263.net/api/cancelMeeting"
-#
-#      #结束会议
-#  url_endMeeting: "https://pcs.263.net/meetingRoom/endMeeting/"
-#
-#      #
-#      #倾听电话会议主动外呼客户
-#  url_callParty: "https://pcs.263.net/meetingRoom/control-callParty"
-#
-#      #倾听电话会议主动挂断外呼客户
-#  url_endcallParty: "https://pcs.263.net/meetingRoom/control-endCallParty"
-#
-#      #客户UID
-#  customerId: "2975223540"
-#
-#      #客户密码
-#  secret: "1Te6hb3be0T924f3"
-#
-#      #创建会议的账户    密码  net263
-#  userAccount: "kangyao.xue@net263.com"
-#
-#  cookie: "language=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; languageCC=zh; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654120312,1654722435; Qs_lvt_326460=1654120311%2C1654722434; Qs_pv_326460=2535230191188450300%2C4074267285746521600; SESSION=ODhlZjk2OWQtYTE1Ny00ZjE2LTk5YmItNzUwMDQ2Njg4MzU5; i18next=zh; pus=fa96ad10-3c50-4586-bb12-8d89fcb99720"
+  #     生产电话存放地址
+  excelFile: "D:\\263\\20220608压测电话.xlsx"
+
+  #pcs 获取token
+  url_scp_token: "https://apipcs.263.net/api/getToken"
+
+  #创建倾听电话会议链接
+  url_create_Meeting: "https://apipcs.263.net/api/createMeeting"
+
+  #获取倾听电话会议详细信息链接
+  url_query_Meeting: "https://pcs.263.net/meetingRoom/queryMeetingInfo/"
+
+  #取消会议(只针对未开启或已过期得倾听会议)
+  url_cancelMeeting: "https://apipcs.263.net/api/cancelMeeting"
+
+  #结束会议
+  url_endMeeting: "https://pcs.263.net/meetingRoom/endMeeting/"
+
+
+  #倾听电话会议主动外呼客户
+  url_callParty: "https://pcs.263.net/meetingRoom/control-callParty"
+
+  #倾听电话会议主动挂断外呼客户
+  url_endcallParty: "https://pcs.263.net/meetingRoom/control-endCallParty"
+
+  #sec 获取token
+  url_sec_token: "https://meetapi.263.net/meet/sec/api/getToken"
+
+  url_sec_createMeeting: "https://meetapi.263.net/meet/sec/api/createMeeting"
+
+  url_sec_cancelMeeting: "https://meetapi.263.net/meet/sec/api/cancelMeeting"
+
+  url_sec_startMeeting: "https://meetingroom.263.net/MeetingRoom/control-startMeeting"
+
+  url_sec_colseMeeting: "https://meetingroom.263.net/MeetingRoom/control-closeMeeting"
+
+  #
+  #客户UID --- 倾听
+  customerId_pcs: "2975223540"
+
+  #客户密码
+  secret_pcs: "1Te6hb3be0T924f3"
+
+  #创建会议的账户    密码  net263
+  userAccount_pcs: "kangyao.xue@net263.com"
+
+  #客户UID --- 畅听 1
+  customerId_sec_1: "U11001346548"
+
+  #客户密码
+  secret_sec_1: "WiOroBTHdM1U6wwukO9Y7EzD927nVrhZ"
+
+  #创建会议的账户    密码  net263
+  userAccount_sec_1_A: "cx1@net263.com"
+
+
+
+  cookie: "language=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; languageCC=zh; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654120312,1654722435; Qs_lvt_326460=1654120311%2C1654722434; Qs_pv_326460=2535230191188450300%2C4074267285746521600; SESSION=ODhlZjk2OWQtYTE1Ny00ZjE2LTk5YmItNzUwMDQ2Njg4MzU5; i18next=zh; pus=fa96ad10-3c50-4586-bb12-8d89fcb99720"
 
   #=============================================👆dep👆====================================================
 
@@ -52,52 +73,52 @@ parameter:
   #测试环境
 
   #虚拟电话存放地址
-  excelFile: "D:\\263\\测试虚拟账号.xlsx"
-  #excelFile: "F:\\263\\测试虚拟电话.xlsx"
-
-  #获取token链接
-  url_scp_token: "https://apipcstest.263.net/api/getToken"
-
-  #创建倾听电话会议链接
-  url_create_Meeting: "https://apipcstest.263.net/api/createMeeting"
-
-  #获取倾听电话会议详细信息链接
-  url_query_Meeting: "https://pcstest.263.net/meetingRoom/queryMeetingInfo/"
-
-  #取消会议(只针对未开启或已过期得倾听会议)
-  url_cancelMeeting: "https://apipcstest.263.net/api/cancelMeeting"
-
-  #结束会议
-  url_endMeeting: "https://pcstest.263.net/meetingRoom/endMeeting/"
-
-  #倾听电话会议主动外呼客户
-  url_callParty: "https://pcstest.263.net/meetingRoom/control-callParty"
-
-  #倾听电话会议主动挂断外呼客户
-  url_endcallParty: "https://pcstest.263.net/meetingRoom/control-endCallParty"
-
-  #sec 获取token
-  url_sec_token: "https://meetapitest.263.net/meet/sec/api/getToken"
-
-  url_sec_createMeeting: "https://meetapitest.263.net/meet/sec/api/createMeeting"
-
-  url_sec_cancelMeeting: "https://meetapitest.263.net/meet/sec/api/cancelMeeting"
-
-  url_sec_startMeeting: "https://meetingroomtest.263.net/MeetingRoom/control-startMeeting"
-
-  url_sec_colseMeeting: "https://meetingroomtest.263.net/MeetingRoom/control-closeMeeting"
-
-  #客户UID
-  customerId: "U10000247885"
-
-  #客户密码
-  secret: "123456"
-
-  #创建会议的账户
-  userAccount: "xu.chen1@net263.com"
-
-  cookie: "language=zh; languageCC=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654120312,1654722435; Qs_lvt_326460=1654120311%2C1654722434; Qs_pv_326460=2535230191188450300%2C4074267285746521600; SESSION=YTQyM2M2MzEtYjA4My00MTdkLWIwOTEtNmJjZDZjZDcxNTQ1; i18next=zh; pus=bf25af17-2d37-426f-be36-92150a8db029"
-  sec_cookie: "JSESSIONID=08A8FF758949DC744E15AB571D721214; language=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654722435,1657250820; Qs_lvt_326460=1654120311%2C1654722434%2C1657250819; Qs_pv_326460=2535230191188450300%2C4074267285746521600%2C3382343016686486000%2C79199649590912800"
+  #  excelFile: "D:\\263\\测试虚拟账号.xlsx"
+  #  #excelFile: "F:\\263\\测试虚拟电话.xlsx"
+  #
+  #  #获取token链接
+  #  url_scp_token: "https://apipcstest.263.net/api/getToken"
+  #
+  #  #创建倾听电话会议链接
+  #  url_create_Meeting: "https://apipcstest.263.net/api/createMeeting"
+  #
+  #  #获取倾听电话会议详细信息链接
+  #  url_query_Meeting: "https://pcstest.263.net/meetingRoom/queryMeetingInfo/"
+  #
+  #  #取消会议(只针对未开启或已过期得倾听会议)
+  #  url_cancelMeeting: "https://apipcstest.263.net/api/cancelMeeting"
+  #
+  #  #结束会议
+  #  url_endMeeting: "https://pcstest.263.net/meetingRoom/endMeeting/"
+  #
+  #  #倾听电话会议主动外呼客户
+  #  url_callParty: "https://pcstest.263.net/meetingRoom/control-callParty"
+  #
+  #  #倾听电话会议主动挂断外呼客户
+  #  url_endcallParty: "https://pcstest.263.net/meetingRoom/control-endCallParty"
+  #
+  #  #sec 获取token
+  #  url_sec_token: "https://meetapitest.263.net/meet/sec/api/getToken"
+  #
+  #  url_sec_createMeeting: "https://meetapitest.263.net/meet/sec/api/createMeeting"
+  #
+  #  url_sec_cancelMeeting: "https://meetapitest.263.net/meet/sec/api/cancelMeeting"
+  #
+  #  url_sec_startMeeting: "https://meetingroomtest.263.net/MeetingRoom/control-startMeeting"
+  #
+  #  url_sec_colseMeeting: "https://meetingroomtest.263.net/MeetingRoom/control-closeMeeting"
+  #
+  #  #客户UID
+  #  customerId: "U10000247885"
+  #
+  #  #客户密码
+  #  secret: "123456"
+  #
+  #  #创建会议的账户
+  #  userAccount: "xu.chen1@net263.com"
+  #
+  #  cookie: "language=zh; languageCC=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654120312,1654722435; Qs_lvt_326460=1654120311%2C1654722434; Qs_pv_326460=2535230191188450300%2C4074267285746521600; SESSION=YTQyM2M2MzEtYjA4My00MTdkLWIwOTEtNmJjZDZjZDcxNTQ1; i18next=zh; pus=bf25af17-2d37-426f-be36-92150a8db029"
+  #  sec_cookie: "JSESSIONID=08A8FF758949DC744E15AB571D721214; language=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654722435,1657250820; Qs_lvt_326460=1654120311%2C1654722434%2C1657250819; Qs_pv_326460=2535230191188450300%2C4074267285746521600%2C3382343016686486000%2C79199649590912800"
   #=============================================👆test👆====================================================
 
 

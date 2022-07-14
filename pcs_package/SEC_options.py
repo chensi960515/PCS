@@ -15,6 +15,7 @@ endcall批量用户
 import logging
 import json
 import requests
+import urllib3
 
 from tools import DemoLogger
 from pcs_package import conf, meeting
@@ -67,7 +68,7 @@ def startMeeting():
     """
     hostPasscodes = get_sec_parameter('../eph_data/sec.txt', 13, 22)
     phoneNumbers = get_sec_parameter('../eph_data/sec.txt', 13, -1)
-    url = sec_startMeeting_url
+    sec_url = sec_startMeeting_url
 
     for hostPasscode in hostPasscodes:
         for phoneNumber in phoneNumbers:
@@ -76,16 +77,40 @@ def startMeeting():
                 phoneNumber_list = []
                 for i in phoneNumber_str_split:
                     phoneNumber_list.append(i.replace("\'", "").strip())
-                payload = json.dumps({
-                    "hostPasscode": hostPasscode,
-                    "hostCode": phoneNumber_list[0:1],
-                    "partyCode": phoneNumber_list[1:]
-                })
-                logging.logger.info(payload)
-                headers = {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8","User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36", "Accept":"*/*", "Accept-Encoding":"gzip, deflate, br","Connection": "keep-alive", "cookie": sec_cookie}
 
-                response = requests.request("POST", url, headers=headers, data=payload, files=[])
-                logging.logger.info(response.text)
+                """
+                params = {
+                    "hostPasscode": hostPasscode
+                }
+                data = {
+                    "partyCode": phoneNumber_list[1:],
+                    "hostCode": phoneNumber_list[0:1]
+                }
+                logging.logger.info(data)
+                headers = {"Content-Type": "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+                           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+                           "Accept": "*/*", "Accept-Encoding": "gzip, deflate, br", "Connection": "keep-alive"}
+                url = sec_url
+                logging.logger.info(url)
+                response = requests.request("POST", url, headers=headers, files=data, params=params)
+                logging.logger.info(response)
+                
+                """
+                params = {
+                    "hostPasscode": hostPasscode
+                }
+                data = {
+                    #"hostCode": json.dumps(phoneNumber_list)
+                    "hostList": json.dumps(phoneNumber_list[0:1]),
+                    "partyList": json.dumps(phoneNumber_list[1:])
+                }
+                logging.logger.info(data)
+                headers = {"Content-Type": "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+                           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+                           "Accept": "*/*", "Accept-Encoding": "gzip, deflate, br", "Connection": "keep-alive"}
+
+                response = requests.request("POST", url=sec_url, headers=headers,verify=False ,params=params ,data=data)
+                logging.logger.info(response)
 
 
 def closeMeeting():
@@ -95,7 +120,7 @@ def closeMeeting():
     """
     hostPasscodes = get_sec_parameter('../eph_data/sec.txt', 13, 22)
     url = sec_closeMeeting_url
-    headers = {'Content-Type': 'application/json',"Cookie": sec_cookie}
+    headers = {'Content-Type': 'application/json', "Cookie": sec_cookie}
     for hostPasscode in hostPasscodes:
         payload = json.dumps({
             "hostPasscode": hostPasscode
@@ -104,7 +129,8 @@ def closeMeeting():
         response = requests.request("POST", url, headers=headers, data=payload)
         logging.logger.info(response.text)
 
+
 if __name__ == '__main__':
-#    cancelMeeting()
+    #    cancelMeeting()
     startMeeting()
 #    closeMeeting()

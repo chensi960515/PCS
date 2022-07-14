@@ -1,0 +1,28 @@
+POST https://meetingroomtest.263.net/MeetingRoom/control-startMeeting?hostPasscode=668407703 HTTP/1.1
+Host: meetingroomtest.263.net
+Connection: keep-alive
+Content-Length: 151
+sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
+Accept: application/json, text/javascript, */*; q=0.01
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Requested-With: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Origin: https://meetingroomtest.263.net
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://meetingroomtest.263.net/MeetingRoom/enterMeetingRoom?id=37796&code=eI3YNz7j
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: JSESSIONID=08A8FF758949DC744E15AB571D721214; language=zh; hy_data_2020_id=1812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff; hy_data_2020_js_sdk=%7B%22distinct_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%2C%22site_id%22%3A457%2C%22user_company%22%3A378%2C%22props%22%3A%7B%7D%2C%22device_id%22%3A%221812140eb79361-0860ad6da27c89-26021b51-2073600-1812140eb7a7ff%22%7D; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221812140eed513-0dd98f2c5bb2d8-26021b51-2073600-1812140eed6766%22%7D; Hm_lvt_d6329c2086ec87a286b0b26a49a301c9=1654722435,1657250820; Qs_lvt_326460=1654120311%2C1654722434%2C1657250819; Qs_pv_326460=2535230191188450300%2C4074267285746521600%2C3382343016686486000%2C791996495909128000
+
+partyCode=%5B%2202363984740-0110%22%2C%2202363984740-0034%22%2C%2202363984740-0004%22%2C%2202363984740-0141%22%5D&hostCode=%5B%2202363984740-0109%22%5D
+HTTP/1.1 200
+Server: nginx/1.14.1
+Date: Thu, 14 Jul 2022 07:13:34 GMT
+Content-Length: 0
+Connection: keep-alive
+Content-Language: zh-CN
+

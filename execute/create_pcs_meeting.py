@@ -27,21 +27,23 @@ phone = ya.get_phone_excel(excelFile=excel_path, list_index=0)
 
 params = meet['data']
 
-sec_params = meet['sec_meeting']
-# pcs_create = PCS_createMeeting.PCS_create()
+sec_params_cx1 = meet['sec_meeting_cx1']
+sec_params_cx2 = meet['sec_meeting_cx1']
+sec_params_cx3 = meet['sec_meeting_cx1']
 
 create = createMeeting.create()
 
 # 创建会议
 
 
-# pcs_create.create_Meeting(param=params, party_partyTel=phone[:500], counsellor_num=1, user_num=4, meeting_num=60)
-#
-# pcs_create.create_Meeting(param=params, party_partyTel=phone[500: 1000], counsellor_num=1, user_num=4, meeting_num=80)
-#
-# pcs_create.create_Meeting(param=params, party_partyTel=phone[1000:2000], counsellor_num=1, user_num=4, meeting_num=120)
 
-#create.create_Meeting(request_type='scp', param=params, party_partyTel=phone[20:40], counsellor_num=1, user_num=4, meeting_num=3)
+# SEC 畅听会议  cx1 账号 第一个60场
+create.create_Meeting(request_type='sec', param=sec_params_cx1, party_partyTel=phone[0:350], counsellor_num=1, user_num=4, meeting_num=60)
 
+create.create_Meeting(request_type='sec', param=sec_params_cx1, party_partyTel=phone[350:700], counsellor_num=1, user_num=4, meeting_num=60)
 
-create.create_Meeting(request_type='sec', param=sec_params, party_partyTel=phone[10:20], counsellor_num=1, user_num=4, meeting_num=1)
+create.create_Meeting(request_type='sec', param=sec_params_cx1, party_partyTel=phone[700:1050], counsellor_num=1, user_num=4, meeting_num=60)
+
+# PCS 倾听会议  kaoyao 账号. 唯一120场   时间与 哪个保持一致?
+
+create.create_Meeting(request_type='pcs', param=params, party_partyTel=phone[1100:2000], counsellor_num=1, user_num=4, meeting_num=60)
