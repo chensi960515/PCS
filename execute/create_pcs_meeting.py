@@ -35,7 +35,8 @@ create = createMeeting.create()
 
 # 创建会议
 # SEC 畅听会议  cx1 账号 第一个60场
-create.create_Meeting(request_type='sec', param=sec_params_cx1, party_partyTel=phone[0:350], counsellor_num=1, user_num=4, meeting_num=1)
+
+#create.create_Meeting(request_type='sec', param=sec_params_cx1, party_partyTel=phone[0:350], counsellor_num=1, user_num=4, meeting_num=1)
 
 # SEC 畅听会议  cx2 账号 第一个60场   ===================要跟第三个60场同时开启=======================
 #create.create_Meeting(request_type='sec', param=sec_params_cx2, party_partyTel=phone[350:700], counsellor_num=1, user_num=4, meeting_num=60)

@@ -15,7 +15,6 @@ endcall批量用户
 import logging
 import json
 import requests
-import urllib3
 
 from tools import DemoLogger
 from pcs_package import conf, meeting
